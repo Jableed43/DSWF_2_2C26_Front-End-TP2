@@ -2,7 +2,7 @@
 
 Aplicación en React hecha en equipo para la materia **Desarrollo de Sistemas Web Front End** (comisión 2C26, 2026). Continúa el sitio del TP1: presenta al equipo, un perfil por integrante, datos propios con búsqueda y filtro, una API pública y la bitácora del proceso, todo dentro de una sola aplicación con sidebar.
 
-**Sitio publicado:** _pendiente: se completa cuando se conecte Vercel_
+**Sitio publicado:** https://dswf-2-2-c26-front-end-tp-2-t12j.vercel.app/
 
 ## Índice
 
