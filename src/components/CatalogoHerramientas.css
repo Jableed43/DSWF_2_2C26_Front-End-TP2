@@ -1,0 +1,217 @@
+.catalogo {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #172b4d;
+  background: #f4f7fc;
+  border-radius: 16px;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.catalogo h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.catalogo__controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.catalogo__campo {
+  display: flex;
+  flex: 1 1 220px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.catalogo label {
+  font-weight: bold;
+}
+
+.catalogo input,
+.catalogo select,
+.catalogo button {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #718096;
+  border-radius: 8px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.catalogo input,
+.catalogo select {
+  width: 100%;
+  color: #172b4d;
+  background: white;
+}
+
+.catalogo button {
+  color: white;
+  background: #1955b5;
+  border-color: #1955b5;
+  cursor: pointer;
+}
+
+.catalogo button:hover {
+  background: #123f88;
+}
+
+.catalogo input:focus-visible,
+.catalogo select:focus-visible,
+.catalogo button:focus-visible,
+.catalogo summary:focus-visible {
+  outline: 3px solid #995600;
+  outline-offset: 3px;
+}
+
+.catalogo__contador {
+  margin: 24px 0 16px;
+}
+
+.catalogo__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.catalogo__tarjeta {
+  min-width: 0;
+  padding: 20px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.catalogo__tarjeta h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.catalogo__categoria {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 5px 10px;
+  color: #16458a;
+  background: #e7efff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.catalogo summary {
+  color: #1955b5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.catalogo details p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.catalogo__vacio {
+  padding: 20px;
+  background: white;
+  border: 1px dashed #718096;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .catalogo {
+    padding: 16px;
+  }
+
+  .catalogo__controles > button {
+    width: 100%;
+  }
+}
+
+.catalogo + .catalogo {
+  margin-top: 32px;
+}
+
+.catalogo button:disabled {
+  background: #52647c;
+  border-color: #52647c;
+  cursor: wait;
+}
+
+.catalogo__tarjeta a {
+  color: #1955b5;
+  text-decoration: underline;
+}
+
+.catalogo__tarjeta a:focus-visible {
+  outline: 3px solid #995600;
+  outline-offset: 3px;
+}
+/* Paleta pastel: vino y violeta */
+
+.catalogo {
+  color: #49344f;
+  background: #f3edf7;
+}
+
+.catalogo input,
+.catalogo select {
+  color: #49344f;
+  background: #fffbff;
+  border-color: #a58cab;
+}
+
+.catalogo button {
+  color: #ffffff;
+  background: #784461;
+  border-color: #784461;
+}
+
+.catalogo button:hover:not(:disabled) {
+  background: #60364e;
+  border-color: #60364e;
+}
+
+.catalogo button:disabled {
+  color: #ffffff;
+  background: #79677e;
+  border-color: #79677e;
+}
+
+.catalogo__tarjeta {
+  background: #fff7fb;
+  border-color: #ddc9df;
+}
+
+.catalogo__categoria {
+  color: #653b70;
+  background: #eadcf1;
+}
+
+.catalogo summary,
+.catalogo__tarjeta a {
+  color: #783c60;
+}
+
+.catalogo__vacio {
+  color: #49344f;
+  background: #fff7fb;
+  border-color: #a58cab;
+}
+
+.catalogo input:focus-visible,
+.catalogo select:focus-visible,
+.catalogo button:focus-visible,
+.catalogo summary:focus-visible,
+.catalogo__tarjeta a:focus-visible {
+  outline: 3px solid #80518e;
+  outline-offset: 3px;
+}

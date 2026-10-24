@@ -1,0 +1,133 @@
+.reproductor {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #ddc9df;
+  border-radius: 16px;
+  background: #fff7fb;
+  color: #49344f;
+  box-shadow: 0 6px 24px rgb(73 52 79 / 18%);
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.reproductor h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.reproductor .catalogo__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reproductor label {
+  font-size: 0.8rem;
+}
+
+.reproductor select {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #a58cab;
+  border-radius: 8px;
+  background: #fffbff;
+  color: #49344f;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.reproductor > p {
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+.reproductor audio {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.reproductor__creditos {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #ddc9df;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.reproductor__creditos summary {
+  cursor: pointer;
+  color: #783c60;
+}
+
+.reproductor__creditos a {
+  color: #783c60;
+}
+
+.reproductor select:focus-visible,
+.reproductor summary:focus-visible,
+.reproductor a:focus-visible,
+.reproductor audio:focus-visible {
+  outline: 3px solid #80518e;
+  outline-offset: 3px;
+}
+
+/* Permite desplazar el contenido final por encima del reproductor. */
+body {
+  padding-bottom: 260px;
+}
+.reproductor [hidden] {
+  display: none !important;
+}
+
+.reproductor--oculto {
+  width: auto;
+  overflow: visible;
+  padding: 8px;
+}
+
+.reproductor__compacto,
+.reproductor__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reproductor__cabecera {
+  margin-bottom: 12px;
+}
+
+.reproductor__cabecera h2 {
+  margin: 0;
+}
+
+.reproductor button {
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid #784461;
+  border-radius: 8px;
+  background: #784461;
+  color: white;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.reproductor button:hover {
+  background: #60364e;
+}
+
+.reproductor button:focus-visible {
+  outline: 3px solid #80518e;
+  outline-offset: 3px;
+}

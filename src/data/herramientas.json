@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "nombre": "React",
+    "categoria": "Frontend",
+    "descripcion": "Biblioteca para construir interfaces mediante componentes."
+  },
+  {
+    "id": 2,
+    "nombre": "Vue",
+    "categoria": "Frontend",
+    "descripcion": "Framework para crear interfaces y aplicaciones web."
+  },
+  {
+    "id": 3,
+    "nombre": "Angular",
+    "categoria": "Frontend",
+    "descripcion": "Framework para desarrollar aplicaciones web con TypeScript."
+  },
+  {
+    "id": 4,
+    "nombre": "Bootstrap",
+    "categoria": "Frontend",
+    "descripcion": "Conjunto de estilos y componentes para diseñar páginas adaptables."
+  },
+  {
+    "id": 5,
+    "nombre": "Tailwind CSS",
+    "categoria": "Frontend",
+    "descripcion": "Framework de CSS basado en clases de utilidad."
+  },
+  {
+    "id": 6,
+    "nombre": "Express",
+    "categoria": "Backend",
+    "descripcion": "Framework de Node.js para crear servidores y API."
+  },
+  {
+    "id": 7,
+    "nombre": "Django",
+    "categoria": "Backend",
+    "descripcion": "Framework de Python para desarrollar aplicaciones web."
+  },
+  {
+    "id": 8,
+    "nombre": "Flask",
+    "categoria": "Backend",
+    "descripcion": "Framework de Python para crear aplicaciones y servicios web."
+  },
+  {
+    "id": 9,
+    "nombre": "Laravel",
+    "categoria": "Backend",
+    "descripcion": "Framework de PHP para desarrollar aplicaciones web."
+  },
+  {
+    "id": 10,
+    "nombre": "Spring Boot",
+    "categoria": "Backend",
+    "descripcion": "Herramienta del ecosistema Spring para crear aplicaciones Java."
+  },
+  {
+    "id": 11,
+    "nombre": "MySQL",
+    "categoria": "Bases de datos",
+    "descripcion": "Sistema de bases de datos relacionales que utiliza SQL."
+  },
+  {
+    "id": 12,
+    "nombre": "PostgreSQL",
+    "categoria": "Bases de datos",
+    "descripcion": "Sistema de bases de datos relacionales de código abierto."
+  },
+  {
+    "id": 13,
+    "nombre": "MongoDB",
+    "categoria": "Bases de datos",
+    "descripcion": "Base de datos que organiza la información en documentos."
+  },
+  {
+    "id": 14,
+    "nombre": "SQLite",
+    "categoria": "Bases de datos",
+    "descripcion": "Motor de bases de datos que permite almacenar una base en un archivo."
+  },
+  {
+    "id": 15,
+    "nombre": "Redis",
+    "categoria": "Bases de datos",
+    "descripcion": "Almacén de datos en memoria utilizado, entre otros usos, como caché."
+  },
+  {
+    "id": 16,
+    "nombre": "Visual Studio Code",
+    "categoria": "Desarrollo",
+    "descripcion": "Editor de código con extensiones para distintos lenguajes."
+  },
+  {
+    "id": 17,
+    "nombre": "Git",
+    "categoria": "Desarrollo",
+    "descripcion": "Sistema de control de versiones para registrar cambios en archivos."
+  },
+  {
+    "id": 18,
+    "nombre": "Vite",
+    "categoria": "Desarrollo",
+    "descripcion": "Herramienta para ejecutar y generar proyectos frontend."
+  },
+  {
+    "id": 19,
+    "nombre": "Postman",
+    "categoria": "Desarrollo",
+    "descripcion": "Aplicación para enviar solicitudes y probar API."
+  },
+  {
+    "id": 20,
+    "nombre": "Docker",
+    "categoria": "Desarrollo",
+    "descripcion": "Plataforma para ejecutar aplicaciones en contenedores."
+  }
+]
