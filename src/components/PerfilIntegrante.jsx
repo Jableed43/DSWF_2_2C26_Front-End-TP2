@@ -259,7 +259,7 @@ export default function PerfilIntegrante({ perfil }) {
             {habilidad && (
               <>
                 <h3>
-                  {habilidad.titulo || '[Nombre de la habilidad]'}
+                  {habilidad.encabezado || habilidad.titulo || '[Nombre de la habilidad]'}
                 </h3>
 
                 <div className="perfil__fila">

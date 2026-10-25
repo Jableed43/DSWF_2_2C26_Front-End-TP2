@@ -13,7 +13,8 @@ export const perfilRocio = {
     {
       titulo: "Desarrollo",
       imagen: "/img/rocio/programacion.jpg",
-      subtitulo: "Software Developer FullStack: tecnologías",
+      encabezado: "Software Developer FullStack",
+      subtitulo: "Tecnologías",
       items: [
         "C#",
         "SQL",
@@ -23,7 +24,8 @@ export const perfilRocio = {
     {
       titulo: "Ciberseguridad",
       imagen: "/img/rocio/ciberseguridad.jpeg",
-      subtitulo: "Mentora de Ciberseguridad: actividades",
+      encabezado: "Mentora de Ciberseguridad",
+      subtitulo: "Actividades",
       items: [
         "Ayudante de proyectos de investigación",
         "OSINT"

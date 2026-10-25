@@ -10,10 +10,10 @@ const secciones = [
 ]
 
 const integrantes = [
-  { to: '/integrantes/javier', texto: 'Javier López' },
-  { to: '/integrantes/rocio', texto: 'Rocío Arenas' },
-  { to: '/integrantes/facundo', texto: 'Facundo Sánchez' },
-  { to: '/integrantes/damian', texto: 'Damián Gorosito' }
+  { to: '/integrantes/javier', texto: 'Javier' },
+  { to: '/integrantes/rocio', texto: 'Rocío' },
+  { to: '/integrantes/facundo', texto: 'Facundo' },
+  { to: '/integrantes/damian', texto: 'Damián' }
 ]
 
 function Sidebar({ abierta, onNavegar }) {

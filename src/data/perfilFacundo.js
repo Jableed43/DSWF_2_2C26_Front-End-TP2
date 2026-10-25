@@ -12,8 +12,6 @@ export const perfilFacundo = {
   habilidades: [
     {
       titulo: "Tecnologías",
-      imagen: "",
-      subtitulo: "Lenguajes y herramientas que uso",
       items: [
         "PHP",
         "Laravel",
@@ -39,20 +37,20 @@ export const perfilFacundo = {
     },
     {
       titulo: "Fallout",
-      videoId: "0kQ8i2FpRDk"
+      videoId: "Gtl-6RCOl84"
     }
   ],
   discos: [
     {
-      titulo: "Colmena",
+      titulo: "El Otro Yo",
       spotifyId: "71p2A2NvxBtP6t74q9lAhD"
     },
     {
-      titulo: "Cuando Salga el Sol",
+      titulo: "Arbolito",
       spotifyId: "2inxDlajVBxpxREiJpyh4J"
     },
     {
-      titulo: "The Fun People Experience",
+      titulo: "Fun People",
       spotifyId: "79wSuKtuvDstwlWV1KbLMl"
     }
   ],
