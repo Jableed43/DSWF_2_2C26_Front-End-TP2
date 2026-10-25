@@ -3,11 +3,11 @@ export const perfilRocio = {
   foto: '/img/rocio/foto.svg',
   avatar: '/img/rocio/avatar.svg',
   ubicacion: 'Buenos Aires, Argentina',
-  edad: 22,
-  email: 'rocio.arenas@ejemplo.edu.ar',
+  edad: 25,
+  email: 'rourocio@gmail.com',
   linkedin: 'https://linkedin.com',
   github: 'https://github.com/rocioailenar',
-  portfolio: 'https://portfolio-rocio.vercel.app',
+  portfolio: 'https://landing-personal-sable.vercel.app/',
 
   resumen:
     'Estudiante de la Tecnicatura Superior en Desarrollo de Software, enfocada en diseño de interfaces accesibles, arquitectura CSS y frontend con React.',
