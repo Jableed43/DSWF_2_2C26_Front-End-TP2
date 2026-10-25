@@ -57,13 +57,15 @@ function Carrusel({ titulo, items = [], tipo }) {
 
             {tipo === 'disco' && (
               <>
-                <p>{actual.artista || '[Artista por completar]'}</p>
+                {actual.artista && <p>{actual.artista}</p>}
 
                 {/^[a-zA-Z0-9]{22}$/.test(actual.spotifyId || '') ? (
                   <iframe
                     key={actual.spotifyId}
                     className="perfil__spotify"
-                    src={`https://open.spotify.com/embed/album/${actual.spotifyId}`}
+                    src={`https://open.spotify.com/embed/${
+                      actual.spotifyTipo === 'track' ? 'track' : 'album'
+                    }/${actual.spotifyId}`}
                     title={`Disco ${actual.titulo || 'seleccionado'}`}
                     loading="lazy"
                     allow="encrypted-media; fullscreen; picture-in-picture"
@@ -129,7 +131,7 @@ function TarjetaJuego({ juego }) {
       <div id={id} hidden={!abierta}>
         <p>Género: {juego.genero || '[Completar]'}</p>
         <p>Año: {juego.anio || '[Completar]'}</p>
-        <p>{juego.descripcion || '[Descripción por completar]'}</p>
+        {juego.descripcion && <p>{juego.descripcion}</p>}
       </div>
     </article>
   )
