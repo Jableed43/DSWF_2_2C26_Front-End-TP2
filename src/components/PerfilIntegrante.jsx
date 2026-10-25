@@ -58,7 +58,10 @@ function Carrusel({ titulo, items = [], tipo }) {
 
             {tipo === 'disco' && (
               <>
-                <p className="perfil__slide-artista">{actual.artista || '[Artista por completar]'}</p>
+                <p className="perfil__slide-artista">
+                  {actual.artista || '[Artista por completar]'}
+                  {actual.album && <span className="perfil__slide-album"> · {actual.album}</span>}
+                </p>
 
                 {/^[a-zA-Z0-9]{22}$/.test(actual.spotifyId || '') ? (
                   <iframe
@@ -67,14 +70,24 @@ function Carrusel({ titulo, items = [], tipo }) {
                     src={`https://open.spotify.com/embed/${
                       actual.spotifyTipo === 'track' ? 'track' : 'album'
                     }/${actual.spotifyId}`}
-                    title={`Disco ${actual.titulo || 'seleccionado'}`}
+                    title={`${actual.spotifyTipo === 'track' ? 'Canción' : 'Álbum'} ${actual.titulo || 'seleccionado'}`}
                     loading="lazy"
-                    allow="encrypted-media; fullscreen; picture-in-picture"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    allowFullScreen
                   />
                 ) : (
                   <div className="perfil__placeholder">
                     Disco por completar
                   </div>
+                )}
+                {actual.spotifyId && (
+                  <a
+                    className="perfil__spotify-enlace"
+                    href={`https://open.spotify.com/${actual.spotifyTipo === 'track' ? 'track' : 'album'}/${actual.spotifyId}`}
+                    aria-label={`Reproducir ${actual.titulo || 'selección'} en Spotify`}
+                  >
+                    Reproducir en Spotify
+                  </a>
                 )}
               </>
             )}
@@ -103,8 +116,7 @@ function Carrusel({ titulo, items = [], tipo }) {
   )
 }
 
-function TarjetaJuego({ juego }) {
-  const [abierta, setAbierta] = useState(false)
+function TarjetaJuego({ juego, abierta, onToggle }) {
   const id = useId()
 
   return (
@@ -128,7 +140,7 @@ function TarjetaJuego({ juego }) {
         className="perfil__btn-ficha"
         aria-expanded={abierta}
         aria-controls={id}
-        onClick={() => setAbierta((valor) => !valor)}
+        onClick={onToggle}
       >
         {abierta ? 'Ocultar ficha' : 'Ver ficha técnica'}
       </button>
@@ -142,17 +154,27 @@ function TarjetaJuego({ juego }) {
   )
 }
 
-/* Interacción 1: Rocío (Probador de Paleta Borgoña en tiempo real) */
-function InteraccionRocio() {
-  const [matiz, setMatiz] = useState('clasico')
-
-  const matices = {
-    clasico: { nombre: 'Borgoña Tradicional', color: '#4d1848', acento: '#c2185b', fondo: '#fbf8fa' },
-    nocturno: { nombre: 'Ciruela Profundo', color: '#2d0d2a', acento: '#d81b60', fondo: '#f5edf4' },
-    berry: { nombre: 'Berry Rose Elegante', color: '#64205e', acento: '#ff4081', fondo: '#fcf6fb' }
+const maticesRocio = {
+  clasico: {
+    nombre: 'Borgoña Tradicional', color: '#4d1848', oscuro: '#2d0d2a', medio: '#64205e',
+    acento: '#c2185b', acentoHover: '#ad1450', fondo: '#fbf8fa', superficie: '#ffffff',
+    superficieAlt: '#f6eef5', borde: '#e6cfe4', bordeFuerte: '#cf9ecb'
+  },
+  nocturno: {
+    nombre: 'Ciruela Profundo', color: '#2d0d2a', oscuro: '#1d071b', medio: '#3c1238',
+    acento: '#c2185b', acentoHover: '#ad1450', fondo: '#f5edf4', superficie: '#ffffff',
+    superficieAlt: '#eee2ed', borde: '#ddc7da', bordeFuerte: '#c99fc2'
+  },
+  berry: {
+    nombre: 'Berry Rose Elegante', color: '#64205e', oscuro: '#3c1238', medio: '#7e2b76',
+    acento: '#ad1450', acentoHover: '#880e4f', acentoVivo: '#ff4081', fondo: '#fcf6fb',
+    superficie: '#ffffff', superficieAlt: '#f8eaf3', borde: '#e9c9df', bordeFuerte: '#d79abd'
   }
+}
 
-  const actual = matices[matiz]
+/* Interacción 1: Rocío (Probador de Paleta Borgoña en tiempo real) */
+function InteraccionRocio({ matiz, onCambiarMatiz }) {
+  const actual = maticesRocio[matiz]
 
   return (
     <div className="perfil__widget-interactivo" style={{ borderLeftColor: actual.color }}>
@@ -164,12 +186,12 @@ function InteraccionRocio() {
         Elegí un matiz para verificar la armonía visual y la adaptabilidad del contraste:
       </p>
       <div className="perfil__widget-botones" role="group" aria-label="Elegir matiz cromático">
-        {Object.entries(matices).map(([clave, item]) => (
+        {Object.entries(maticesRocio).map(([clave, item]) => (
           <button
             key={clave}
             type="button"
             className={`perfil__btn-matiz ${matiz === clave ? 'perfil__btn-matiz--activo' : ''}`}
-            onClick={() => setMatiz(clave)}
+            onClick={() => onCambiarMatiz(clave)}
             aria-pressed={matiz === clave}
           >
             <span className="perfil__muestra-color" style={{ backgroundColor: item.color }} />
@@ -177,7 +199,12 @@ function InteraccionRocio() {
           </button>
         ))}
       </div>
-      <div className="perfil__muestra-resultado" style={{ backgroundColor: actual.fondo, borderColor: actual.color }}>
+      <div
+        className="perfil__muestra-resultado"
+        style={{ backgroundColor: actual.fondo, borderColor: actual.color }}
+        role="status"
+        aria-live="polite"
+      >
         <p style={{ color: actual.color, fontWeight: 'bold' }}>
           Matiz Activo: {actual.nombre}
         </p>
@@ -324,6 +351,8 @@ function InteraccionFacundo() {
 export default function PerfilIntegrante({ perfil }) {
   const [fotoGirada, setFotoGirada] = useState(false)
   const [categoria, setCategoria] = useState(0)
+  const [matizRocio, setMatizRocio] = useState('clasico')
+  const [juegoAbierto, setJuegoAbierto] = useState(null)
 
   const habilidadId = useId()
   const habilidad = perfil.habilidades?.[categoria]
@@ -334,8 +363,36 @@ export default function PerfilIntegrante({ perfil }) {
     ['Portfolio', perfil.portfolio]
   ].filter(([, url]) => /^https?:\/\//i.test(url || ''))
 
+  const paletaSeleccionada = perfil.interaccionTipo === 'paleta'
+    ? maticesRocio[matizRocio]
+    : null
+  const estiloPaleta = paletaSeleccionada
+    ? {
+        '--bg-app': paletaSeleccionada.fondo,
+        '--bg-surface': paletaSeleccionada.superficie,
+        '--bg-surface-alt': paletaSeleccionada.superficieAlt,
+        '--burgundy-950': paletaSeleccionada.oscuro,
+        '--burgundy-900': paletaSeleccionada.color,
+        '--burgundy-850': paletaSeleccionada.color,
+        '--burgundy-800': paletaSeleccionada.color,
+        '--burgundy-700': paletaSeleccionada.medio,
+        '--burgundy-600': paletaSeleccionada.acento,
+        '--burgundy-500': paletaSeleccionada.acento,
+        '--burgundy-50': paletaSeleccionada.superficieAlt,
+        '--brand-primary': paletaSeleccionada.color,
+        '--brand-primary-hover': paletaSeleccionada.medio,
+        '--brand-subtle': paletaSeleccionada.superficieAlt,
+        '--brand-border': paletaSeleccionada.borde,
+        '--brand-border-strong': paletaSeleccionada.bordeFuerte,
+        '--accent-primary': paletaSeleccionada.acento,
+        '--accent-primary-hover': paletaSeleccionada.acentoHover,
+        '--accent-active': paletaSeleccionada.acento,
+        '--accent-highlight': paletaSeleccionada.acentoVivo || paletaSeleccionada.acento
+      }
+    : undefined
+
   return (
-    <div className="perfil-integrante">
+    <div className="perfil-integrante" style={estiloPaleta}>
       {/* Navegación superior interna accesible (Criterio 06: no depender del botón atrás) */}
       <nav className="perfil__nav-retorno" aria-label="Navegación de retorno">
         <Link to="/" className="perfil__link-volver">
@@ -439,7 +496,9 @@ export default function PerfilIntegrante({ perfil }) {
           Interacción Funcional de {perfil.nombre.split(' ')[0]}
         </h2>
 
-        {perfil.interaccionTipo === 'paleta' && <InteraccionRocio />}
+        {perfil.interaccionTipo === 'paleta' && (
+          <InteraccionRocio matiz={matizRocio} onCambiarMatiz={setMatizRocio} />
+        )}
         {perfil.interaccionTipo === 'rutas' && <InteraccionJavier />}
         {perfil.interaccionTipo === 'voto' && <InteraccionDamian />}
         {perfil.interaccionTipo === 'checklist' && <InteraccionFacundo />}
@@ -534,7 +593,12 @@ export default function PerfilIntegrante({ perfil }) {
 
         <div className="perfil__juegos">
           {(perfil.juegos || []).map((juego, indice) => (
-            <TarjetaJuego key={indice} juego={juego} />
+            <TarjetaJuego
+              key={indice}
+              juego={juego}
+              abierta={juegoAbierto === indice}
+              onToggle={() => setJuegoAbierto((abierto) => (abierto === indice ? null : indice))}
+            />
           ))}
         </div>
 

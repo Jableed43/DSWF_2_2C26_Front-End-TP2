@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
 const enlacesPrincipales = [
@@ -73,18 +73,10 @@ const enlacesProyecto = [
 ]
 
 function Sidebar({ abierta, alCerrar, onNavegar }) {
-  const localizacion = useLocation()
-
   const cerrarMenu = () => {
     if (onNavegar) onNavegar()
     if (alCerrar) alCerrar()
   }
-
-  useEffect(() => {
-    if (abierta && alCerrar) {
-      alCerrar()
-    }
-  }, [localizacion.pathname, abierta, alCerrar])
 
   useEffect(() => {
     function manejarTecla(e) {
@@ -100,6 +92,7 @@ function Sidebar({ abierta, alCerrar, onNavegar }) {
     <aside
       className={`sidebar ${abierta ? 'sidebar--abierta' : ''}`}
       aria-label="Navegación principal del sitio"
+      aria-hidden={!abierta}
       id="sidebar-navegacion"
     >
       <div className="sidebar__encabezado">
@@ -121,11 +114,11 @@ function Sidebar({ abierta, alCerrar, onNavegar }) {
           type="button"
           className="sidebar__boton-cerrar"
           onClick={cerrarMenu}
-          aria-label="Cerrar panel de navegación"
+          aria-label="Volver y cerrar menú"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6" />
+            <path d="M9 12h12" />
           </svg>
         </button>
       </div>

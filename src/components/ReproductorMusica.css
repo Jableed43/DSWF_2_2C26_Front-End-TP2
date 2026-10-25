@@ -5,15 +5,15 @@
 
 .reproductor {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 16px;
+  bottom: 16px;
   z-index: 800;
-  width: 320px;
-  max-width: calc(100vw - 40px);
-  max-height: calc(100dvh - 40px);
+  width: 280px;
+  max-width: calc(100vw - 24px);
+  max-height: min(320px, calc(100dvh - 32px));
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 18px;
+  padding: 14px;
   border: 1px solid var(--brand-border);
   border-radius: var(--radius-lg);
   background: var(--bg-surface);
@@ -26,7 +26,7 @@
 .reproductor h2 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--burgundy-950);
 }
@@ -43,8 +43,8 @@
 
 .reproductor select {
   width: 100%;
-  min-height: 38px;
-  padding: 6px 10px;
+  min-height: 34px;
+  padding: 5px 8px;
   border: 1px solid var(--brand-border);
   border-radius: var(--radius-sm);
   background: #ffffff;
@@ -63,13 +63,13 @@
 .reproductor audio {
   display: block;
   width: 100%;
-  height: 36px;
-  margin-top: 8px;
+  height: 32px;
+  margin-top: 6px;
 }
 
 .reproductor__creditos {
-  margin-top: 12px;
-  padding-top: 8px;
+  margin-top: 9px;
+  padding-top: 7px;
   border-top: 1px solid var(--brand-border);
   font-size: 0.72rem;
   line-height: 1.45;
@@ -89,7 +89,7 @@
 .reproductor--oculto {
   width: auto;
   overflow: visible;
-  padding: 8px 12px;
+  padding: 4px 6px;
   background: var(--burgundy-900);
   color: #ffffff;
   border-color: var(--burgundy-800);
@@ -108,8 +108,8 @@
 }
 
 .reproductor button {
-  min-height: 34px;
-  padding: 6px 12px;
+  min-height: 32px;
+  padding: 5px 10px;
   border: 1px solid var(--brand-border);
   border-radius: var(--radius-sm);
   background: var(--burgundy-50);
@@ -126,6 +126,8 @@
 }
 
 .reproductor--oculto button {
+  min-height: 26px;
+  padding: 3px 7px;
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.3);
@@ -133,4 +135,18 @@
 
 .reproductor--oculto button:hover {
   background: var(--accent-primary);
+}
+
+@media (max-width: 600px) {
+  .reproductor {
+    right: 10px;
+    bottom: 10px;
+    width: 264px;
+    max-width: calc(100vw - 20px);
+    padding: 12px;
+  }
+
+  .reproductor--oculto {
+    max-width: calc(100vw - 20px);
+  }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import ReproductorMusica from '../components/ReproductorMusica'
@@ -6,17 +6,23 @@ import './Layout.css'
 
 function Layout({ children }) {
   const [sidebarAbierta, setSidebarAbierta] = useState(false)
+  const botonMenuRef = useRef(null)
+
+  const cerrarSidebar = useCallback(() => {
+    setSidebarAbierta(false)
+    botonMenuRef.current?.focus()
+  }, [])
 
   useEffect(() => {
     if (!sidebarAbierta) return
 
     function cerrarConEscape(evento) {
-      if (evento.key === 'Escape') setSidebarAbierta(false)
+      if (evento.key === 'Escape') cerrarSidebar()
     }
 
     document.addEventListener('keydown', cerrarConEscape)
     return () => document.removeEventListener('keydown', cerrarConEscape)
-  }, [sidebarAbierta])
+  }, [sidebarAbierta, cerrarSidebar])
 
   const contenido = children ?? <Outlet />
 
@@ -28,8 +34,9 @@ function Layout({ children }) {
         <button
           type="button"
           className="layout__boton-hamburguesa"
-          onClick={() => setSidebarAbierta(true)}
-          aria-label="Abrir menú de navegación"
+          ref={botonMenuRef}
+          onClick={() => (sidebarAbierta ? cerrarSidebar() : setSidebarAbierta(true))}
+          aria-label={sidebarAbierta ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           aria-expanded={sidebarAbierta}
           aria-controls="sidebar-navegacion"
         >
@@ -49,29 +56,29 @@ function Layout({ children }) {
       {sidebarAbierta && (
         <div
           className="layout__overlay"
-          onClick={() => setSidebarAbierta(false)}
+          onClick={cerrarSidebar}
           aria-hidden="true"
         />
       )}
 
-      <Sidebar abierta={sidebarAbierta} alCerrar={() => setSidebarAbierta(false)} />
+      <Sidebar abierta={sidebarAbierta} alCerrar={cerrarSidebar} />
 
       <div className="layout__cuerpo">
         <main id="contenido-principal" className="layout__contenido">
           {contenido}
         </main>
-
-        <footer className="layout__pie-global">
-          <div className="layout__pie-interior">
-            <p className="layout__pie-texto">
-              <strong>BlueTech</strong> · Desarrollo de Sistemas Web Front End · Comisión 2C26 (2026)
-            </p>
-            <p className="layout__pie-subtexto">
-              Desarrollado con React 19, React Router 7 y Vite · Grupo 8
-            </p>
-          </div>
-        </footer>
       </div>
+
+      <footer className="layout__pie-global">
+        <div className="layout__pie-interior">
+          <p className="layout__pie-texto">
+            <strong>BlueTech</strong> · Desarrollo de Sistemas Web Front End · Comisión 2C26 (2026)
+          </p>
+          <p className="layout__pie-subtexto">
+            Desarrollado con React 19, React Router 7 y Vite · Grupo 8
+          </p>
+        </div>
+      </footer>
 
       <ReproductorMusica />
     </div>

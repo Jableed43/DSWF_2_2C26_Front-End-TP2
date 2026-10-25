@@ -47,51 +47,64 @@ export const perfilRocio = {
 
   peliculas: [
     {
-      titulo: 'Spider-Man: Across the Spider-Verse',
-      videoId: 'cqGjhVJWtEg',
-      descripcion: 'Una obra de arte en animación, composición de color y diseño visual innovador.'
+      titulo: 'Vampire Academy',
+      videoId: 'QuU8P-D0-is'
     },
     {
-      titulo: 'Interstellar',
-      videoId: 'zSWdZVtXT7E',
-      descripcion: 'Ciencia ficción reflexiva con una fotografía sublime y banda sonora memorable.'
+      titulo: 'Lucy',
+      videoId: '-hpupbliDbk'
+    },
+    {
+      titulo: 'Aves de Presa',
+      videoId: 'kGM4uYZzfu0'
     }
   ],
 
   discos: [
     {
-      titulo: 'Future Nostalgia',
-      artista: 'Dua Lipa',
-      spotifyId: '57vxBY72zZ92f03657P3m6'
+      titulo: 'Into You',
+      artista: 'Ariana Grande',
+      spotifyId: '63y6xWR4gXz7bnUGOk8iI6',
+      spotifyTipo: 'track',
+      album: 'Dangerous Woman'
     },
     {
-      titulo: 'Random Access Memories',
-      artista: 'Daft Punk',
-      spotifyId: '4m2880jivSbbyEGAKfITCa'
+      titulo: 'New Rules',
+      artista: 'Dua Lipa',
+      spotifyId: '2ekn2ttSfGqwhhate0LSR0',
+      spotifyTipo: 'track',
+      album: 'Dua Lipa'
+    },
+    {
+      titulo: 'Andrea',
+      artista: 'Bad Bunny ft. Buscabulla',
+      spotifyId: '44XjoNvtwevktFKjvVe1vH',
+      spotifyTipo: 'track',
+      album: 'Un Verano Sin Ti'
     }
   ],
 
   juegos: [
     {
-      titulo: 'Gris',
+      titulo: 'Fortnite',
       imagen: '',
-      genero: 'Aventura artística y plataformas',
-      anio: '2018',
-      descripcion: 'Una experiencia visual y emocional con acuarelas digitales y diseño expresivo.'
+      genero: 'Battle Royale y acción online',
+      anio: '2017',
+      descripcion: 'Partidas competitivas en equipo, con construcción opcional y eventos en constante evolución.'
     },
     {
-      titulo: 'Celeste',
+      titulo: 'Watch Dogs 2',
       imagen: '',
-      genero: 'Plataformas de precisión',
-      anio: '2018',
-      descripcion: 'Mecánicas impecables sobre la superación personal y la perseverancia.'
+      genero: 'Acción y aventura de mundo abierto',
+      anio: '2016',
+      descripcion: 'Exploración de San Francisco y resolución de misiones mediante herramientas de hacking.'
     },
     {
-      titulo: 'Animal Crossing: New Horizons',
+      titulo: 'Super Mario Bros.',
       imagen: '',
-      genero: 'Simulación social y diseño',
-      anio: '2020',
-      descripcion: 'Creatividad pura organizando y decorando una isla paradisíaca a tu propio ritmo.'
+      genero: 'Plataformas',
+      anio: '1985',
+      descripcion: 'Un clásico de plataformas con niveles de desplazamiento lateral y aventuras en el Reino Champiñón.'
     }
   ]
 }
