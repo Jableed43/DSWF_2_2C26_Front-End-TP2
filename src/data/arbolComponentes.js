@@ -29,9 +29,9 @@ export const arbolComponentes = {
               nota: 'Lugar donde React Router muestra la página de la ruta',
               hijos: [
                 {
-                  nombre: 'Inicio',
-                  archivo: 'src/pages/Inicio.jsx',
-                  nota: 'Ruta /'
+                  nombre: 'Portada',
+                  archivo: 'src/pages/Portada.jsx',
+                  nota: 'Ruta /: presentación del equipo, tarjetas de integrantes y accesos a las secciones'
                 },
                 {
                   nombre: 'Herramientas',

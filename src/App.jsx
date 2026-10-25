@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './layouts/Layout'
-import Inicio from './pages/Inicio'
+import Portada from './pages/Portada'
 import Herramientas from './pages/Herramientas'
 import ApiGithub from './pages/ApiGithub'
 import Arbol from './pages/Arbol'
@@ -17,7 +17,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Portada />} />
         <Route path="/herramientas" element={<Herramientas />} />
         <Route path="/api" element={<ApiGithub />} />
         <Route path="/arbol" element={<Arbol />} />
