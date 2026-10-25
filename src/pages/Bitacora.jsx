@@ -126,7 +126,6 @@ function Bitacora() {
         </p>
       </header>
 
-      {/* Controles de Filtrado */}
       <section className="bitacora__filtros-seccion" aria-label="Filtros de la bitácora">
         <div className="bitacora__filtros-grid">
           <div className="bitacora__filtro-campo">
@@ -189,7 +188,6 @@ function Bitacora() {
         </p>
       </section>
 
-      {/* Listado de Entradas Desplegables */}
       <section className="bitacora__lista-entradas" aria-label="Entradas de la bitácora">
         {registrosFiltrados.length === 0 ? (
           <div className="bitacora__vacio">
@@ -280,6 +278,10 @@ function Bitacora() {
         )}
       </section>
     </div>
+  )
+}
+
+export default Bitacora
   )
 }
 

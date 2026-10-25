@@ -72,17 +72,20 @@ const enlacesProyecto = [
   }
 ]
 
-function Sidebar({ abierta, alCerrar }) {
+function Sidebar({ abierta, alCerrar, onNavegar }) {
   const localizacion = useLocation()
 
-  // Cerrar el menú móvil al cambiar de ruta
+  const cerrarMenu = () => {
+    if (onNavegar) onNavegar()
+    if (alCerrar) alCerrar()
+  }
+
   useEffect(() => {
     if (abierta && alCerrar) {
       alCerrar()
     }
   }, [localizacion.pathname, abierta, alCerrar])
 
-  // Cerrar al presionar la tecla Escape
   useEffect(() => {
     function manejarTecla(e) {
       if (e.key === 'Escape' && abierta && alCerrar) {
@@ -100,7 +103,7 @@ function Sidebar({ abierta, alCerrar }) {
       id="sidebar-navegacion"
     >
       <div className="sidebar__encabezado">
-        <NavLink to="/" className="sidebar__marca" aria-label="BlueTech - Ir a la portada">
+        <NavLink to="/" className="sidebar__marca" aria-label="BlueTech - Ir a la portada" onClick={cerrarMenu}>
           <div className="sidebar__logo-icono" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="12 2 2 7 12 12 22 7 12 2" />
@@ -114,11 +117,10 @@ function Sidebar({ abierta, alCerrar }) {
           </div>
         </NavLink>
 
-        {/* Botón de cierre visible únicamente en móvil */}
         <button
           type="button"
           className="sidebar__boton-cerrar"
-          onClick={alCerrar}
+          onClick={cerrarMenu}
           aria-label="Cerrar panel de navegación"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -129,7 +131,6 @@ function Sidebar({ abierta, alCerrar }) {
       </div>
 
       <nav className="sidebar__nav">
-        {/* Sección Principal */}
         <div className="sidebar__grupo">
           <span className="sidebar__grupo-titulo">Explorar</span>
           <ul className="sidebar__lista">
@@ -138,6 +139,7 @@ function Sidebar({ abierta, alCerrar }) {
                 <NavLink
                   to={enlace.to}
                   end={enlace.to === '/'}
+                  onClick={cerrarMenu}
                   className={({ isActive }) =>
                     `sidebar__enlace ${isActive ? 'sidebar__enlace--activo' : ''}`
                   }
@@ -150,7 +152,6 @@ function Sidebar({ abierta, alCerrar }) {
           </ul>
         </div>
 
-        {/* Sección Equipo */}
         <div className="sidebar__grupo">
           <span className="sidebar__grupo-titulo">Equipo BlueTech</span>
           <ul className="sidebar__lista">
@@ -158,6 +159,7 @@ function Sidebar({ abierta, alCerrar }) {
               <li key={miembro.to}>
                 <NavLink
                   to={miembro.to}
+                  onClick={cerrarMenu}
                   className={({ isActive }) =>
                     `sidebar__enlace ${isActive ? 'sidebar__enlace--activo' : ''}`
                   }
@@ -175,7 +177,6 @@ function Sidebar({ abierta, alCerrar }) {
           </ul>
         </div>
 
-        {/* Sección Documentación y Arquitectura */}
         <div className="sidebar__grupo">
           <span className="sidebar__grupo-titulo">Auditoría & Entrega</span>
           <ul className="sidebar__lista">
@@ -183,6 +184,7 @@ function Sidebar({ abierta, alCerrar }) {
               <li key={enlace.to}>
                 <NavLink
                   to={enlace.to}
+                  onClick={cerrarMenu}
                   className={({ isActive }) =>
                     `sidebar__enlace ${isActive ? 'sidebar__enlace--activo' : ''}`
                   }
@@ -200,6 +202,11 @@ function Sidebar({ abierta, alCerrar }) {
         <p className="sidebar__materia">Desarrollo de Sistemas Web</p>
         <p className="sidebar__institucional">Front End · Grupo 8</p>
       </div>
+    </aside>
+  )
+}
+
+export default Sidebar
     </aside>
   )
 }

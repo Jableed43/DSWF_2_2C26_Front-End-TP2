@@ -1,8 +1,3 @@
-/* ==========================================================================
-   LAYOUT PRINCIPAL - ARQUITECTURA GENERAL (BlueTech)
-   Soporte responsive: Desktop con sidebar fija, móvil con topbar y drawer
-   ========================================================================== */
-
 .layout {
   display: flex;
   min-height: 100vh;
@@ -11,7 +6,6 @@
   position: relative;
 }
 
-/* Barra superior móvil (< 900px) */
 .layout__topbar-movil {
   display: none;
   position: sticky;
@@ -39,87 +33,32 @@
   transition: background var(--transition-fast);
 }
 
-.layout__boton-hamburguesa:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.layout__marca-movil {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
-.layout__marca-badge {
-  font-size: 0.7rem;
-  font-weight: 600;
-  background: var(--accent-primary);
-  color: #ffffff;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-}
-
-/* Overlay móvil cuando el drawer está abierto */
-.layout__overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(26, 6, 24, 0.65);
-  backdrop-filter: blur(4px);
-  z-index: 990;
-  animation: fadeIn 200ms ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Área central de contenidos */
-.layout__cuerpo {
+.layout__contenido {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-}
-
-.layout__contenido {
-  flex: 1;
-  padding: 36px 40px 100px; /* Espacio extra al final para que el reproductor no tape nada */
+  padding: 36px 40px 100px;
   max-width: var(--max-content-width);
   width: 100%;
   margin: 0 auto;
 }
 
-/* Pie de página institucional */
-.layout__pie-global {
-  padding: 24px;
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--brand-border);
-  margin-top: auto;
+.layout__saltar {
+  position: absolute;
+  top: -48px;
+  left: 8px;
+  z-index: 1100;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--color-primario);
+  color: #fff;
 }
 
-.layout__pie-interior {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-  text-align: center;
+.layout__saltar:focus {
+  top: 8px;
 }
 
-.layout__pie-texto {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.layout__pie-subtexto {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-/* Responsividad en Tablet y Móvil */
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
@@ -131,5 +70,7 @@
 
   .layout__contenido {
     padding: 20px 16px 120px;
+  }
+}
   }
 }

@@ -1,25 +1,20 @@
 export const perfilJavier = {
   nombre: 'Javier Nehuén López',
+export const perfilJavier = {
+  nombre: 'Javier Nehuén López',
   foto: '/img/javier/foto.svg',
-  avatar: '/img/javier/avatar.svg',
+  avatar: '/img/javier/avatar.png',
   ubicacion: 'Buenos Aires, Argentina',
   edad: 24,
-  email: 'javier.lopez@ejemplo.edu.ar',
-  linkedin: 'https://linkedin.com',
+  email: 'javiernehuenlopez@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/javier-nehuen-lopez',
   github: 'https://github.com/Jableed43',
-  portfolio: 'https://github.com/Jableed43',
-
-  resumen:
-    'Estudiante de Desarrollo de Software especializado en arquitectura de aplicaciones SPA, enrutamiento del lado del cliente y optimización de builds.',
-
-  sobreMi:
-    'En BlueTech fui responsable de crear el proyecto con Vite y React Router, diseñar la Sidebar compartida con drawer deslizable en dispositivos móviles, resolver el refresco de rutas con vercel.json, construir el componente Perfil molde reutilizable y diagramar el árbol de renderizado interactivo.',
-
+  portfolio: 'https://jableed43.github.io/portfolio-2025/',
+  resumen: 'Desarrollador Full Stack, Tech Lead y Líder en Educación Tecnológica con más de 4 años de experiencia entregando aplicaciones web y móviles escalables y formando a más de 2.500 desarrolladores en instituciones líderes. Diseño arquitecturas de software robustas, optimizo APIs REST/GraphQL e implemento patrones Server-Driven UI, a la vez que lidero equipos y diseño currículos técnicos de alto impacto.',
+  sobreMi: 'En BlueTech fui responsable de crear el proyecto con Vite y React Router, diseñar la Sidebar compartida con drawer deslizable en dispositivos móviles, resolver el refresco de rutas con vercel.json, construir el componente Perfil molde reutilizable y diagramar el árbol de renderizado interactivo. Esa misma curiosidad la llevo fuera del código: me vas a encontrar salteando verduras en la sartén, soldando algún circuito por diversión, tocando la guitarra, jugando algún clásico de mi colección o viendo una buena película con un disco de fondo.',
   interaccionTipo: 'rutas',
   interaccionTitulo: 'Simulador y Auditor de Estado de Enrutamiento',
-  interaccionDescripcion:
-    'Como responsable de la estructura y navegación, probá este verificador interactivo para simular el comportamiento de rutas profundas y tiempos de respuesta:',
-
+  interaccionDescripcion: 'Como responsable de la estructura y navegación, probá este verificador interactivo para simular el comportamiento de rutas profundas y tiempos de respuesta:',
   habilidades: [
     {
       titulo: 'Arquitectura SPA & Routing',
@@ -42,9 +37,40 @@ export const perfilJavier = {
         'Validación de código con Oxlint',
         'Modelado de jerarquías de componentes (AST)'
       ]
+    },
+    {
+      titulo: 'Cocina',
+      imagen: '/img/javier/skills/pan.webp',
+      subtitulo: 'Recetas favoritas',
+      items: [
+        'Tacos/Burritos',
+        'Carne desmechada',
+        'Tortilla de papa',
+        'Pastas caseras'
+      ]
+    },
+    {
+      titulo: 'Electrónica',
+      imagen: '/img/javier/skills/pcb.webp',
+      subtitulo: 'Temas de interés',
+      items: [
+        'Microcontroladores (Arduino, ESP32)',
+        'Diseño de placas (PCB)',
+        'Domótica IoT',
+        'Construcción de prototipos'
+      ]
+    },
+    {
+      titulo: 'Música',
+      imagen: '/img/javier/skills/guitar.gif',
+      subtitulo: 'Prácticas',
+      items: [
+        'Producción musical',
+        'Cantar',
+        'Tocar Guitarra'
+      ]
     }
   ],
-
   peliculas: [
     {
       titulo: 'The Matrix',
@@ -55,9 +81,16 @@ export const perfilJavier = {
       titulo: 'Inception',
       videoId: 'YoHD9XEInc0',
       descripcion: 'Narrativa compleja sobre niveles anidados de sueños, análogo a los árboles jerárquicos de software.'
+    },
+    {
+      titulo: 'Paprika',
+      videoId: 'PIUqozzyW2k'
+    },
+    {
+      titulo: 'Parasite',
+      videoId: '5xH0HfJHsaY'
     }
   ],
-
   discos: [
     {
       titulo: 'Discovery',
@@ -68,9 +101,16 @@ export const perfilJavier = {
       titulo: 'OK Computer',
       artista: 'Radiohead',
       spotifyId: '6dVIqQ8qmQ5GBnJ9shOYGE'
+    },
+    {
+      titulo: 'The Yussef Dayes Experience - Live From Malibu',
+      spotifyId: '5gohS1223mJrzBVQzakpjm'
+    },
+    {
+      titulo: 'Hiperbórea',
+      spotifyId: '2vtpI9pQJFi5uOBptAu7Fp'
     }
   ],
-
   juegos: [
     {
       titulo: 'Portal 2',
@@ -87,11 +127,18 @@ export const perfilJavier = {
       descripcion: 'Inmersión total en una metrópolis futurista gobernada por la tecnología y corporaciones.'
     },
     {
-      titulo: 'Half-Life: Alyx',
-      imagen: '',
-      genero: 'Acción y VR',
-      anio: '2020',
-      descripcion: 'Un hito en la interacción en realidad virtual con física avanzada.'
+      titulo: 'Half-Life',
+      imagen: '/img/javier/games/half-life_cover_art.jpg',
+      genero: 'FPS (Disparos en primera persona), Ciencia ficción',
+      anio: '1998'
+    },
+    {
+      titulo: 'Blasphemous',
+      imagen: '/img/javier/games/blasphemous_video_game.jpg',
+      genero: 'Metroidvania, Acción / Hack and Slash',
+      anio: '2019'
     }
   ]
+}
+
 }

@@ -1,0 +1,97 @@
+.arbol {
+  max-width: 900px;
+}
+
+.arbol > p {
+  margin: 8px 0 16px;
+}
+
+.arbol__controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.arbol__controles button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-primario);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-primario);
+  font: inherit;
+  cursor: pointer;
+}
+
+.arbol__controles button:hover {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.arbol__lista {
+  list-style: none;
+}
+
+.arbol__lista .arbol__lista {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 2px solid #cbd5e1;
+}
+
+.arbol__nodo {
+  margin: 6px 0;
+}
+
+.arbol__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.arbol__boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-primario);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--color-primario);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.arbol__hoja {
+  display: inline-flex;
+  justify-content: center;
+  width: 28px;
+  color: #64748b;
+}
+
+.arbol__nombre {
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 700;
+}
+
+.arbol__archivo {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  font-size: 0.8rem;
+}
+
+.arbol__nota {
+  margin: 2px 0 0 36px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.arbol__boton:focus-visible,
+.arbol__controles button:focus-visible {
+  outline: 3px solid var(--color-claro);
+  outline-offset: 2px;
+}

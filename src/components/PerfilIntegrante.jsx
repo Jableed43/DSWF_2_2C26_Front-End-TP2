@@ -64,7 +64,9 @@ function Carrusel({ titulo, items = [], tipo }) {
                   <iframe
                     key={actual.spotifyId}
                     className="perfil__spotify"
-                    src={`https://open.spotify.com/embed/album/${actual.spotifyId}`}
+                    src={`https://open.spotify.com/embed/${
+                      actual.spotifyTipo === 'track' ? 'track' : 'album'
+                    }/${actual.spotifyId}`}
                     title={`Disco ${actual.titulo || 'seleccionado'}`}
                     loading="lazy"
                     allow="encrypted-media; fullscreen; picture-in-picture"
