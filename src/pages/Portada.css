@@ -1,26 +1,26 @@
 /* ==========================================================================
-   PORTADA DEL EQUIPO - BlueTech (paleta azul de la sidebar)
+   PORTADA DEL EQUIPO - BlueTech (paleta borgoña de Rocío)
    Criterio 07: Presentación con elementos interactivos y acceso a perfiles
    ========================================================================== */
 
 .portada {
-  /* Tokens de la portada, mapeados a la paleta azul del sitio (index.css). */
-  --accent-primary: var(--color-primario);
-  --burgundy-950: #0f172a;
-  --burgundy-900: var(--color-oscuro);
-  --burgundy-800: var(--color-secundario);
-  --burgundy-700: #1d4ed8;
-  --burgundy-500: #3b82f6;
-  --burgundy-400: #60a5fa;
-  --burgundy-300: var(--color-claro);
-  --burgundy-100: #dbeafe;
-  --burgundy-50: #eff6ff;
-  --brand-border: #e2e8f0;
-  --brand-border-strong: var(--color-claro);
-  --bg-surface: var(--color-superficie);
-  --text-primary: var(--color-texto);
-  --text-secondary: #475569;
-  --text-muted: var(--color-texto-sec);
+  /* Tokens de la portada (paleta borgoña elegida por Rocío). */
+  --accent-primary: #c2185b;
+  --burgundy-950: #1d071b;
+  --burgundy-900: #2d0d2a;
+  --burgundy-800: #4d1848;
+  --burgundy-700: #64205e;
+  --burgundy-500: #993a90;
+  --burgundy-400: #b553ab;
+  --burgundy-300: #ce7ac6;
+  --burgundy-100: #f1d3ef;
+  --burgundy-50: #faeef9;
+  --brand-border: #e6cfe4;
+  --brand-border-strong: #cf9ecb;
+  --bg-surface: #ffffff;
+  --text-primary: #1e0e1d;
+  --text-secondary: #573f55;
+  --text-muted: #7e667c;
   --font-heading: 'Poppins', system-ui, sans-serif;
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -32,8 +32,8 @@
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-full: 9999px;
-  --shadow-sm: 0 4px 10px rgb(30 41 59 / 8%);
-  --shadow-md: 0 8px 24px rgb(30 41 59 / 12%);
+  --shadow-sm: 0 4px 10px rgb(45 13 42 / 8%);
+  --shadow-md: 0 8px 24px rgb(45 13 42 / 12%);
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
 
@@ -80,7 +80,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgb(37 99 235 / 25%);
+  box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.25);
 }
 
 .portada__titulo-principal {
@@ -240,7 +240,7 @@
 
 .portada__tarjeta-miembro--activo {
   border-color: var(--accent-primary);
-  box-shadow: 0 8px 24px rgb(37 99 235 / 15%);
+  box-shadow: 0 8px 24px rgba(194, 24, 91, 0.15);
 }
 
 .portada__miembro-cabecera {
@@ -253,12 +253,12 @@
 .portada__avatar {
   width: 56px;
   height: 56px;
-  border: 2px solid var(--color-superficie);
+  border: 2px solid #ffffff;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 25%;
   background: var(--burgundy-100);
-  box-shadow: 0 4px 10px rgb(30 64 175 / 25%);
+  box-shadow: 0 4px 10px rgba(100, 32, 94, 0.25);
   flex-shrink: 0;
 }
 
@@ -328,7 +328,7 @@
 }
 
 .portada__cita-contenedor {
-  background: #f5f9ff;
+  background: #fdf5fc;
   border-left: 3px solid var(--accent-primary);
   padding: 12px 14px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;

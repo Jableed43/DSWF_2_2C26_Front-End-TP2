@@ -36,7 +36,7 @@
 .arbol__lista .arbol__lista {
   margin-left: 14px;
   padding-left: 14px;
-  border-left: 2px solid #cbd5e1;
+  border-left: 2px solid var(--color-borde);
 }
 
 .arbol__nodo {
@@ -69,7 +69,7 @@
   display: inline-flex;
   justify-content: center;
   width: 28px;
-  color: #64748b;
+  color: #7e667c;
 }
 
 .arbol__nombre {
@@ -80,7 +80,7 @@
 .arbol__archivo {
   padding: 2px 6px;
   border-radius: 6px;
-  background: #e2e8f0;
+  background: var(--color-borde);
   font-size: 0.8rem;
 }
 

@@ -21,7 +21,7 @@
   border-radius: 999px;
   background: var(--color-superficie);
   color: var(--color-texto-sec);
-  box-shadow: 0 2px 8px rgb(30 41 59 / 8%);
+  box-shadow: 0 2px 8px rgb(45 13 42 / 8%);
   font: inherit;
   font-size: 0.85rem;
   font-weight: 500;
@@ -59,7 +59,7 @@
   background: var(--color-superficie);
   border-top: 4px solid var(--color-primario);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgb(30 41 59 / 8%);
+  box-shadow: 0 10px 30px rgb(45 13 42 / 8%);
 }
 
 .bitacora__registro summary {
@@ -74,7 +74,7 @@
 .bitacora__etapa {
   padding: 0.15rem 0.65rem;
   border-radius: 999px;
-  background: #dbeafe;
+  background: var(--color-suave);
   color: var(--color-secundario);
   font-size: 0.8rem;
   font-weight: 600;

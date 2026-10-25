@@ -5,7 +5,7 @@
   padding: 24px;
   box-sizing: border-box;
   color: var(--color-texto);
-  background: #eff6ff;
+  background: var(--color-tenue);
   border-radius: 16px;
   font-family: Arial, sans-serif;
   text-align: left;
@@ -43,8 +43,8 @@
 
 .repositorios button:disabled {
   color: #ffffff;
-  background: #64748b;
-  border-color: #64748b;
+  background: #7e667c;
+  border-color: #7e667c;
   cursor: wait;
 }
 
@@ -64,7 +64,7 @@
   min-width: 0;
   padding: 20px;
   background: #ffffff;
-  border: 1px solid #bfdbfe;
+  border: 1px solid var(--color-borde);
   border-radius: 12px;
   overflow-wrap: anywhere;
 }
@@ -83,7 +83,7 @@
   padding: 20px;
   color: var(--color-texto);
   background: #ffffff;
-  border: 1px dashed #94a3b8;
+  border: 1px dashed #9a8598;
   border-radius: 12px;
   line-height: 1.6;
 }

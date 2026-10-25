@@ -10,8 +10,9 @@
   width: var(--ancho-sidebar);
   padding: 24px 16px;
   overflow-y: auto;
-  background: var(--color-oscuro);
+  background: linear-gradient(180deg, #7e2b76 0%, #64205e 100%);
   color: var(--color-sidebar-texto);
+  box-shadow: 8px 0 30px rgb(45 13 42 / 20%);
 }
 
 .sidebar__marca {
@@ -22,7 +23,7 @@
 }
 
 .sidebar__marca span {
-  color: var(--color-claro);
+  color: var(--color-suave);
 }
 
 .sidebar__lema {
@@ -61,13 +62,14 @@
 }
 
 .sidebar__lista a.active {
-  background: var(--color-primario);
+  background: rgb(45 13 42 / 28%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 28%);
   color: #fff;
   font-weight: 600;
 }
 
 .sidebar a:focus-visible {
-  outline: 3px solid var(--color-claro);
+  outline: 3px solid #fff;
   outline-offset: 2px;
 }
 
