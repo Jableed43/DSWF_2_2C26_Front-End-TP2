@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import ReproductorMusica from '../components/ReproductorMusica'
 import './Layout.css'
@@ -7,6 +7,12 @@ import './Layout.css'
 function Layout({ children }) {
   const [sidebarAbierta, setSidebarAbierta] = useState(false)
   const botonMenuRef = useRef(null)
+  const navigate = useNavigate()
+
+  function volverAtras() {
+    if (window.history.state?.idx > 0) navigate(-1)
+    else navigate('/')
+  }
 
   const cerrarSidebar = useCallback(() => {
     setSidebarAbierta(false)
@@ -31,6 +37,19 @@ function Layout({ children }) {
       <a href="#contenido-principal" className="skip-link">Saltar al contenido principal</a>
 
       <header className="layout__topbar-movil">
+        <button
+          type="button"
+          className="layout__boton-volver"
+          onClick={volverAtras}
+          aria-label="Volver atrás"
+          title="Volver atrás"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+            <path d="M9 12h12" />
+          </svg>
+        </button>
+
         <button
           type="button"
           className="layout__boton-hamburguesa"

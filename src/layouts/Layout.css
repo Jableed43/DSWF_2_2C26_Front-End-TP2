@@ -35,6 +35,27 @@
   transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 }
 
+.layout__boton-volver {
+  position: absolute;
+  right: max(20px, calc((100vw - var(--max-content-width)) / 2));
+  display: grid;
+  place-items: center;
+  width: 40px;
+  aspect-ratio: 1;
+  padding: 8px;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--burgundy-800);
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.layout__boton-volver:hover {
+  color: var(--burgundy-900);
+  background: var(--burgundy-50);
+  border-color: var(--brand-border-strong);
+}
+
 .layout__boton-hamburguesa:hover {
   color: var(--burgundy-900);
   background: var(--burgundy-50);
@@ -136,6 +157,10 @@
 
   .layout__boton-hamburguesa {
     left: 16px;
+  }
+
+  .layout__boton-volver {
+    right: 16px;
   }
 
   .layout__contenido {

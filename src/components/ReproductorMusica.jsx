@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './ReproductorMusica.css'
 
 const pistas = [
@@ -16,23 +16,61 @@ const pistas = [
     id: 'local-forecast-elevator',
     titulo: 'Local Forecast - Elevator',
     archivo: '/audio/local-forecast-elevator.mp3'
+  },
+  {
+    id: 'lluvia-suave',
+    titulo: 'Lluvia suave',
+    archivo: '/audio/lluvia-suave.wav'
+  },
+  {
+    id: 'lofi-ambiental',
+    titulo: 'Lofi ambiental',
+    archivo: '/audio/lofi-ambiental.wav'
   }
 ]
 
 function ReproductorMusica() {
   const audioRef = useRef(null)
-  const [pistaId, setPistaId] = useState(pistas[0].id)
+  const [pistaId, setPistaId] = useState('lofi-ambiental')
   const [error, setError] = useState('')
-  const [oculto, setOculto] = useState(false)
+  const [oculto, setOculto] = useState(true)
   const [reproduciendo, setReproduciendo] = useState(false)
+  const reproducirAlCambiarRef = useRef(false)
 
   const pistaActual = pistas.find((pista) => pista.id === pistaId)
 
-  function cambiarPista(evento) {
-    audioRef.current?.pause()
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    audio.play().catch(() => setReproduciendo(false))
+  }, [])
+
+  useLayoutEffect(() => {
+    if (!reproducirAlCambiarRef.current) return
+
+    const audio = audioRef.current
+    reproducirAlCambiarRef.current = false
+    if (!audio) return
+
+    audio.play().catch(() => {
+      setError('No se pudo iniciar la pista. Probá con el botón Reproducir.')
+    })
+  }, [pistaId])
+
+  function cambiarPista(siguientePista) {
+    const audio = audioRef.current
+    if (!audio) return
+
+    audio.pause()
+    reproducirAlCambiarRef.current = true
     setReproduciendo(false)
-    setPistaId(evento.target.value)
+    setPistaId(siguientePista.id)
     setError('')
+
+    audio.play().catch(() => {
+      setError('No se pudo iniciar la pista. Probá con el botón Reproducir.')
+    })
   }
 
   async function alternarReproduccion() {
@@ -59,8 +97,17 @@ function ReproductorMusica() {
       aria-label="Música de fondo"
     >
       <div hidden={!oculto} className="reproductor__compacto">
+        <div className="reproductor__compacto-info">
+          <span className="reproductor__compacto-icono" aria-hidden="true">♫</span>
+          <span className="reproductor__compacto-pista">
+            <strong>Música</strong>
+            <span>{pistaActual.titulo}</span>
+          </span>
+        </div>
+
         <button
           type="button"
+          className="reproductor__boton-play"
           onClick={alternarReproduccion}
           aria-label={reproduciendo ? 'Pausar música' : 'Reproducir música'}
         >
@@ -74,8 +121,10 @@ function ReproductorMusica() {
           aria-expanded={!oculto}
           aria-controls="panel-musica"
           title="Abrir reproductor"
+          className="reproductor__boton-abrir"
         >
-          +
+          <span aria-hidden="true">⌃</span>
+          <span className="reproductor__solo-lector">Abrir controles</span>
         </button>
       </div>
 
@@ -93,19 +142,21 @@ function ReproductorMusica() {
           </button>
         </div>
 
-        <label htmlFor="seleccion-musica">Canción</label>
-
-        <select
-          id="seleccion-musica"
-          value={pistaId}
-          onChange={cambiarPista}
-        >
+        <span className="reproductor__etiqueta-pistas">Pistas</span>
+        <div className="reproductor__lista-pistas" role="group" aria-label="Elegir pista">
           {pistas.map((pista) => (
-            <option key={pista.id} value={pista.id}>
-              {pista.titulo}
-            </option>
+            <button
+              key={pista.id}
+              type="button"
+              className={pista.id === pistaId ? 'reproductor__pista-activa' : ''}
+              aria-pressed={pista.id === pistaId}
+              onClick={() => cambiarPista(pista)}
+            >
+              <span>{pista.titulo}</span>
+              {pista.id === pistaId && <span aria-hidden="true">●</span>}
+            </button>
           ))}
-        </select>
+        </div>
 
         <p id="pista-actual">{pistaActual.titulo}</p>
       </div>
@@ -117,7 +168,7 @@ function ReproductorMusica() {
         controls
         hidden={oculto}
         loop
-        preload="none"
+        preload="auto"
         aria-label={`Reproductor: ${pistaActual.titulo}`}
         onPlay={() => {
           setReproduciendo(true)
@@ -161,6 +212,10 @@ function ReproductorMusica() {
               Creative Commons Atribución 4.0
             </a>.
             {' '}Archivos sin modificaciones.
+          </p>
+
+          <p>
+            “Lluvia suave” y “Lofi ambiental” son loops originales generados para este proyecto.
           </p>
         </details>
       </div>
