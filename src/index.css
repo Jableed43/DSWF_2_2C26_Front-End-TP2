@@ -1,3 +1,11 @@
+:root {
+  --color-primario: #2563eb;
+  --color-oscuro: #14213d;
+  --color-claro: #93c5fd;
+  --color-sidebar-texto: #e2e8f0;
+  --ancho-sidebar: 260px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

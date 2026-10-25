@@ -1,0 +1,89 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: var(--ancho-sidebar);
+  padding: 24px 16px;
+  overflow-y: auto;
+  background: var(--color-oscuro);
+  color: var(--color-sidebar-texto);
+}
+
+.sidebar__marca {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sidebar__marca span {
+  color: var(--color-claro);
+}
+
+.sidebar__lema {
+  margin-top: -14px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.sidebar__titulo {
+  margin-bottom: 8px;
+  padding: 0 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.sidebar__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+}
+
+.sidebar__lista a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--color-sidebar-texto);
+  text-decoration: none;
+}
+
+.sidebar__lista a:hover {
+  background: rgb(255 255 255 / 10%);
+}
+
+.sidebar__lista a.active {
+  background: var(--color-primario);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar a:focus-visible {
+  outline: 3px solid var(--color-claro);
+  outline-offset: 2px;
+}
+
+@media (max-width: 899px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar--abierta {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
