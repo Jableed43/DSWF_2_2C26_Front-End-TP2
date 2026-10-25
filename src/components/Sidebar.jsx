@@ -207,8 +207,3 @@ function Sidebar({ abierta, alCerrar, onNavegar }) {
 }
 
 export default Sidebar
-    </aside>
-  )
-}
-
-export default Sidebar

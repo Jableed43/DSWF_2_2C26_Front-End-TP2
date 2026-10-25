@@ -1,7 +1,5 @@
 export const perfilJavier = {
   nombre: 'Javier Nehuén López',
-export const perfilJavier = {
-  nombre: 'Javier Nehuén López',
   foto: '/img/javier/foto.svg',
   avatar: '/img/javier/avatar.png',
   ubicacion: 'Buenos Aires, Argentina',
@@ -112,6 +110,115 @@ export const perfilJavier = {
     }
   ],
   juegos: [
+  {
+    "titulo": "Half-Life",
+    "imagen": "/img/javier/games/half-life_cover_art.jpg",
+    "genero": "FPS (Disparos en primera persona), Ciencia ficción",
+    "anio": "1998"
+  },
+  {
+    "titulo": "Blasphemous",
+    "imagen": "/img/javier/games/blasphemous_video_game.jpg",
+    "genero": "Metroidvania, Acción / Hack and Slash",
+    "anio": "2019"
+  },
+  {
+    "titulo": "Mario Kart 8",
+    "imagen": "/img/javier/games/mario_kart_8.jpg",
+    "genero": "Carreras karts",
+    "anio": "2014"
+  },
+  {
+    "titulo": "Mortal Kombat X",
+    "imagen": "/img/javier/games/mortal_kombat_x_cover_art.png",
+    "genero": "Pelea / Lucha",
+    "anio": "2015"
+  },
+  {
+    "titulo": "Hollow Knight",
+    "imagen": "/img/javier/games/hollow_knight.jpg",
+    "genero": "Metroidvania, Acción y Aventura",
+    "anio": "2017"
+  },
+  {
+    "titulo": "Zelda: Breath of the Wild",
+    "imagen": "/img/javier/games/the_legend_of_zelda_breath_of_the_wild.jpg",
+    "genero": "Acción y Aventura, Rol (RPG) de mundo abierto",
+    "anio": "2017"
+  },
+  {
+    "titulo": "Kirby's Dreamland 3",
+    "imagen": "/img/javier/games/kirby_dreamland_3.jpg",
+    "genero": "Plataformas 2D",
+    "anio": "1997"
+  },
+  {
+    "titulo": "Super Smash Bros. Melee",
+    "imagen": "/img/javier/games/smash_bros_melee.jpg",
+    "genero": "Pelea / Lucha de plataformas",
+    "anio": "2001"
+  },
+  {
+    "titulo": "Earthworm Jim",
+    "imagen": "/img/javier/games/earthworm_jim_neutral_cover.jpg",
+    "genero": "Run and Gun, Plataformas 2D",
+    "anio": "1994"
+  },
+  {
+    "titulo": "Metal Slug 3",
+    "imagen": "/img/javier/games/metal-slug-3_artwork.webp",
+    "genero": "Run and Gun, Acción arcade",
+    "anio": "2000"
+  },
+  {
+    "titulo": "Resident Evil 3",
+    "imagen": "/img/javier/games/resident_evil_3_cover.jpg",
+    "genero": "Survival Horror",
+    "anio": "1999"
+  },
+  {
+    "titulo": "Castlevania: Symphony of the Night",
+    "imagen": "/img/javier/games/castlevania.jpg",
+    "genero": "Metroidvania, Acción y Rol",
+    "anio": "1997"
+  },
+  {
+    "titulo": "Indigo Prophecy",
+    "imagen": "/img/javier/games/indigo_prophecy.jpg",
+    "genero": "Aventura gráfica, Drama interactivo",
+    "anio": "2005"
+  },
+  {
+    "titulo": "Darkest Dungeon",
+    "imagen": "/img/javier/games/darkest_dungeon.jpg",
+    "genero": "Rol (RPG) por turnos, Roguelike",
+    "anio": "2016"
+  },
+  {
+    "titulo": "Sonic & Knuckles",
+    "imagen": "/img/javier/games/sonic_knuckles.jpg",
+    "genero": "Plataformas 2D",
+    "anio": "1994"
+  },
+  {
+    "titulo": "Super Mario Bros. 3",
+    "imagen": "/img/javier/games/super_mario_bros._3_coverart.png",
+    "genero": "Plataformas 2D",
+    "anio": "1988"
+  },
+  {
+    "titulo": "Final Fantasy X",
+    "imagen": "/img/javier/games/final_fantasy_x.jpg",
+    "genero": "Rol (JRPG) por turnos",
+    "anio": "2001"
+  },
+  {
+    "titulo": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+    "imagen": "/img/javier/games/shadow_of_chernobyl_cover.jpg",
+    "genero": "FPS, Survival Horror, Rol",
+    "anio": "2007"
+  }
+,
     {
       titulo: 'Portal 2',
       imagen: '',
@@ -125,20 +232,6 @@ export const perfilJavier = {
       genero: 'RPG de acción en mundo abierto',
       anio: '2020',
       descripcion: 'Inmersión total en una metrópolis futurista gobernada por la tecnología y corporaciones.'
-    },
-    {
-      titulo: 'Half-Life',
-      imagen: '/img/javier/games/half-life_cover_art.jpg',
-      genero: 'FPS (Disparos en primera persona), Ciencia ficción',
-      anio: '1998'
-    },
-    {
-      titulo: 'Blasphemous',
-      imagen: '/img/javier/games/blasphemous_video_game.jpg',
-      genero: 'Metroidvania, Acción / Hack and Slash',
-      anio: '2019'
     }
   ]
-}
-
 }

@@ -1,44 +1,34 @@
-// src/components/Portada.jsx
-import React from 'react';
-import '../styles/theme.css';
-import './Portada.css';
+import { Route, Routes } from 'react-router-dom'
+import PerfilIntegrante from './components/PerfilIntegrante'
+import { perfilDamian } from './data/perfilDamian'
+import { perfilFacundo } from './data/perfilFacundo'
+import { perfilJavier } from './data/perfilJavier'
+import { perfilRocio } from './data/perfilRocio'
+import Layout from './layouts/Layout'
+import ApiGithub from './pages/ApiGithub'
+import ArbolRenderizado from './pages/ArbolRenderizado'
+import Bitacora from './pages/Bitacora'
+import Herramientas from './pages/Herramientas'
+import NoEncontrada from './pages/NoEncontrada'
+import Portada from './pages/Portada'
 
-export const Portada = ({ alSeleccionarPerfil }) => {
-  // Datos simulados basados en tu lista (Miembros 7, 9 y Rocío como 8)
-  const equipo = [
-    { id: 7, nombre: "Miembro 7", rol: "Backend Dev", avatar: "https://placeholder.com" },
-    { id: 8, nombre: "Rocío", rol: "Frontend Lead", avatar: "https://placeholder.com" },
-    { id: 9, nombre: "Miembro 9", rol: "UI/UX Designer", avatar: "https://placeholder.com" }
-  ];
-
+function App() {
   return (
-    <header className="portada-container">
-      <div className="portada-hero">
-        <h1 className="portada-titulo">Plataforma del Equipo</h1>
-        <p className="portada-descripcion">
-          Bienvenidos al espacio colaborativo. Conoce a los integrantes del squad y explora sus perfiles interactivos.
-        </p>
-        <button className="btn-cta-principal">Explorar Repositorio</button>
-      </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Portada />} />
+        <Route path="herramientas" element={<Herramientas />} />
+        <Route path="proyectos-api" element={<ApiGithub />} />
+        <Route path="integrantes/rocio" element={<PerfilIntegrante perfil={perfilRocio} />} />
+        <Route path="integrantes/javier" element={<PerfilIntegrante perfil={perfilJavier} />} />
+        <Route path="integrantes/damian" element={<PerfilIntegrante perfil={perfilDamian} />} />
+        <Route path="integrantes/facundo" element={<PerfilIntegrante perfil={perfilFacundo} />} />
+        <Route path="arbol-renderizado" element={<ArbolRenderizado />} />
+        <Route path="bitacora" element={<Bitacora />} />
+        <Route path="*" element={<NoEncontrada />} />
+      </Route>
+    </Routes>
+  )
+}
 
-      <section className="equipo-seccion">
-        <h2 className="seccion-titulo">Nuestro Equipo</h2>
-        <div className="equipo-grid">
-          {equipo.map((miembro) => (
-            <div key={miembro.id} className="tarjeta-miembro">
-              <img src={miembro.avatar} alt={miembro.nombre} className="avatar-img" />
-              <h3>{miembro.nombre}</h3>
-              <p>{miembro.rol}</p>
-              <button 
-                className="btn-perfil" 
-                onClick={() => alSeleccionarPerfil(miembro.id)}
-              >
-                Ver Perfil {miembro.id === 8 && "(Interactivo)"}
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-    </header>
-  );
-};
+export default App

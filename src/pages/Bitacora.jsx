@@ -282,7 +282,3 @@ function Bitacora() {
 }
 
 export default Bitacora
-  )
-}
-
-export default Bitacora
