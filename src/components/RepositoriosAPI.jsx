@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './CatalogoHerramientas.css'
+import './RepositoriosAPI.css'
 
 const repositorios = [
   'facebook/react',
@@ -75,7 +75,7 @@ function RepositoriosAPI() {
   }
 
   return (
-    <section className="catalogo">
+    <section className="repositorios">
       <h2>Proyectos en GitHub</h2>
 
       <p>
@@ -84,7 +84,7 @@ function RepositoriosAPI() {
         de los repositorios de React, Vue y Angular.
       </p>
 
-      <div className="catalogo__controles">
+      <div className="repositorios__controles">
         <button
           type="button"
           onClick={actualizar}
@@ -103,16 +103,16 @@ function RepositoriosAPI() {
       )}
 
       {!cargando && error && (
-        <p className="catalogo__vacio" role="alert">
+        <p className="repositorios__vacio" role="alert">
           {error}
         </p>
       )}
 
       {!cargando && !error && (
-        <div className="catalogo__lista">
+        <div className="repositorios__lista">
           {datos.map((repositorio) => (
             <article
-              className="catalogo__tarjeta"
+              className="repositorios__tarjeta"
               key={repositorio.id}
             >
               <h3>{repositorio.full_name}</h3>

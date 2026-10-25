@@ -1,0 +1,99 @@
+.repositorios {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  color: #49344f;
+  background: #f3edf7;
+  border-radius: 16px;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.repositorios h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.repositorios__controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.repositorios button {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #784461;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #784461;
+  font: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.repositorios button:hover:not(:disabled) {
+  background: #60364e;
+  border-color: #60364e;
+}
+
+.repositorios button:disabled {
+  color: #ffffff;
+  background: #79677e;
+  border-color: #79677e;
+  cursor: wait;
+}
+
+.repositorios button:focus-visible,
+.repositorios__tarjeta a:focus-visible {
+  outline: 3px solid #80518e;
+  outline-offset: 3px;
+}
+
+.repositorios__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.repositorios__tarjeta {
+  min-width: 0;
+  padding: 20px;
+  background: #fff7fb;
+  border: 1px solid #ddc9df;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.repositorios__tarjeta h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.repositorios__tarjeta a {
+  color: #783c60;
+  text-decoration: underline;
+}
+
+.repositorios__vacio {
+  padding: 20px;
+  color: #49344f;
+  background: #fff7fb;
+  border: 1px dashed #a58cab;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .repositorios {
+    padding: 16px;
+  }
+
+  .repositorios__controles > button {
+    width: 100%;
+  }
+}

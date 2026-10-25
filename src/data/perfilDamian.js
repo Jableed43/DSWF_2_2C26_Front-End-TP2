@@ -1,7 +1,7 @@
 export const perfilDamian = {
   nombre: 'Damián Gorosito',
   foto: '/img/damian/foto.jpg',
-avatar: '/img/damian/avatar.png',
+  avatar: '/img/damian/avatar.png',
   ubicacion: 'Buenos Aires, Argentina',
   edad: '',
   email: '',

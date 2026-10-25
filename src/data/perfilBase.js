@@ -2,6 +2,8 @@
 // Las imágenes se guardan en public/img y se referencian como /img/nombre.jpg.
 export const perfilBase = {
   nombre: '',
+  // foto es opcional: si hay foto y avatar, el perfil permite girar entre las dos.
+  foto: '',
   avatar: '',
   ubicacion: '',
   edad: '',
