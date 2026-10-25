@@ -2,22 +2,18 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
-  background: var(--color-superficie);
-  border-top: 4px solid var(--color-primario);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgb(30 41 59 / 8%);
+  padding: 24px;
+  box-sizing: border-box;
   color: var(--color-texto);
+  background: #eff6ff;
+  border-radius: 16px;
+  font-family: Arial, sans-serif;
   text-align: left;
 }
 
 .repositorios h2 {
+  margin-top: 0;
   font-size: 1.8rem;
-}
-
-.repositorios > p {
-  margin-top: 0.5rem;
-  color: var(--color-texto-sec);
 }
 
 .repositorios__controles {
@@ -25,7 +21,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 16px;
-  margin: 24px 0;
+  margin-top: 24px;
 }
 
 .repositorios button {
@@ -33,20 +29,22 @@
   padding: 10px 12px;
   border: 1px solid var(--color-primario);
   border-radius: 8px;
+  color: #ffffff;
   background: var(--color-primario);
-  color: #fff;
   font: inherit;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
 .repositorios button:hover:not(:disabled) {
-  border-color: var(--color-secundario);
   background: var(--color-secundario);
+  border-color: var(--color-secundario);
 }
 
 .repositorios button:disabled {
-  border-color: #94a3b8;
-  background: #94a3b8;
+  color: #ffffff;
+  background: #64748b;
+  border-color: #64748b;
   cursor: wait;
 }
 
@@ -65,9 +63,9 @@
 .repositorios__tarjeta {
   min-width: 0;
   padding: 20px;
-  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
   border-radius: 12px;
-  background: var(--color-fondo);
   overflow-wrap: anywhere;
 }
 
@@ -76,28 +74,23 @@
   font-size: 1.2rem;
 }
 
-.repositorios__tarjeta p + p {
-  margin-top: 0.5rem;
-}
-
 .repositorios__tarjeta a {
-  display: inline-block;
-  margin-top: 0.75rem;
   color: var(--color-primario);
-  font-weight: 600;
+  text-decoration: underline;
 }
 
 .repositorios__vacio {
   padding: 20px;
+  color: var(--color-texto);
+  background: #ffffff;
   border: 1px dashed #94a3b8;
   border-radius: 12px;
-  background: var(--color-fondo);
   line-height: 1.6;
 }
 
 @media (max-width: 480px) {
   .repositorios {
-    padding: 1.25rem;
+    padding: 16px;
   }
 
   .repositorios__controles > button {

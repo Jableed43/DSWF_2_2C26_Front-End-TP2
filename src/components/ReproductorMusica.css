@@ -6,48 +6,93 @@
   width: 300px;
   max-width: calc(100vw - 32px);
   max-height: calc(100dvh - 32px);
-  padding: 14px;
   overflow-y: auto;
-  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #bfdbfe;
   border-radius: 16px;
-  background: var(--color-superficie);
-  box-shadow: 0 6px 24px rgb(30 41 59 / 18%);
+  background: #ffffff;
   color: var(--color-texto);
+  box-shadow: 0 6px 24px rgb(30 41 59 / 18%);
+  font-family: Arial, sans-serif;
   text-align: left;
 }
 
-.reproductor [hidden] {
-  display: none !important;
-}
-
-.reproductor--oculto {
-  width: auto;
-  padding: 8px;
-  overflow: visible;
-}
-
 .reproductor h2 {
-  margin: 0;
+  margin: 0 0 12px;
   font-size: 1rem;
 }
 
+.reproductor .catalogo__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .reproductor label {
-  display: block;
-  margin-bottom: 6px;
   font-size: 0.8rem;
-  font-weight: 600;
 }
 
 .reproductor select {
   width: 100%;
   min-height: 36px;
   padding: 6px 8px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #94a3b8;
   border-radius: 8px;
-  background: var(--color-superficie);
+  background: #ffffff;
   color: var(--color-texto);
   font: inherit;
   font-size: 0.85rem;
+}
+
+.reproductor > p {
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+.reproductor audio {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.reproductor__creditos {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #bfdbfe;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.reproductor__creditos summary {
+  cursor: pointer;
+  color: var(--color-primario);
+}
+
+.reproductor__creditos a {
+  color: var(--color-primario);
+}
+
+.reproductor select:focus-visible,
+.reproductor summary:focus-visible,
+.reproductor a:focus-visible,
+.reproductor audio:focus-visible {
+  outline: 3px solid var(--color-secundario);
+  outline-offset: 3px;
+}
+
+/* Permite desplazar el contenido final por encima del reproductor. */
+body {
+  padding-bottom: 260px;
+}
+.reproductor [hidden] {
+  display: none !important;
+}
+
+.reproductor--oculto {
+  width: auto;
+  overflow: visible;
+  padding: 8px;
 }
 
 .reproductor__compacto,
@@ -62,16 +107,8 @@
   margin-bottom: 12px;
 }
 
-.reproductor #pista-actual {
-  margin: 10px 0;
-  color: var(--color-texto-sec);
-  font-size: 0.85rem;
-}
-
-.reproductor audio {
-  display: block;
-  width: 100%;
-  height: 40px;
+.reproductor__cabecera h2 {
+  margin: 0;
 }
 
 .reproductor button {
@@ -80,40 +117,17 @@
   border: 1px solid var(--color-primario);
   border-radius: 8px;
   background: var(--color-primario);
-  color: #fff;
+  color: white;
   font: inherit;
   font-size: 0.8rem;
   cursor: pointer;
 }
 
 .reproductor button:hover {
-  border-color: var(--color-secundario);
   background: var(--color-secundario);
 }
 
-.reproductor__creditos {
-  margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px solid #e2e8f0;
-  color: var(--color-texto-sec);
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
-
-.reproductor__creditos summary {
-  color: var(--color-primario);
-  cursor: pointer;
-}
-
-.reproductor__creditos a {
-  color: var(--color-primario);
-}
-
-.reproductor select:focus-visible,
-.reproductor button:focus-visible,
-.reproductor summary:focus-visible,
-.reproductor a:focus-visible,
-.reproductor audio:focus-visible {
+.reproductor button:focus-visible {
   outline: 3px solid var(--color-secundario);
   outline-offset: 3px;
 }
