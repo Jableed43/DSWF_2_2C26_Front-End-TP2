@@ -1,0 +1,318 @@
+/* ==========================================================================
+   BITÁCORA DE TRABAJO - BlueTech (Paleta Borgoña 60-30-10)
+   Criterio 14: Sección con registros del proceso en desplegables y filtros
+   ========================================================================== */
+
+.bitacora-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeInBitacora 300ms ease forwards;
+}
+
+@keyframes fadeInBitacora {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bitacora-pagina__cabecera {
+  text-align: left;
+}
+
+.bitacora-pagina__insignia {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--burgundy-50);
+  border: 1px solid var(--brand-border);
+  color: var(--burgundy-800);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.bitacora-pagina__titulo {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--burgundy-950);
+  margin-bottom: 8px;
+}
+
+.bitacora-pagina__subtitulo {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Filtros y Controles */
+.bitacora__filtros-seccion {
+  background: var(--bg-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-xs);
+}
+
+.bitacora__filtros-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.bitacora__filtro-campo {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bitacora__filtro-campo label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--burgundy-900);
+}
+
+.bitacora__filtro-campo select {
+  height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.bitacora__filtro-campo select:focus-visible {
+  border-color: var(--burgundy-700);
+  outline: none;
+}
+
+.bitacora__filtros-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.bitacora__btn-secundario {
+  height: 44px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--burgundy-50);
+  border: 1px solid var(--brand-border);
+  color: var(--burgundy-800);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.bitacora__btn-secundario:hover {
+  background: var(--burgundy-800);
+  color: #ffffff;
+  border-color: var(--burgundy-800);
+}
+
+.bitacora__contador {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+/* Listado de Entradas */
+.bitacora__lista-entradas {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bitacora__entrada {
+  background: var(--bg-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
+  overflow: hidden;
+}
+
+.bitacora__entrada:hover {
+  border-color: var(--burgundy-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.bitacora__entrada--abierta {
+  border-color: var(--burgundy-400);
+  box-shadow: var(--shadow-md);
+}
+
+.bitacora__entrada-cabecera {
+  padding: 22px 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fdfafc;
+  transition: background var(--transition-fast);
+}
+
+.bitacora__entrada-cabecera:hover {
+  background: #fcf4fb;
+}
+
+.bitacora__meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.bitacora__tag-etapa {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--burgundy-100);
+  color: var(--burgundy-900);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.bitacora__tag-autor {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: var(--accent-tag-bg);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.bitacora__tag-fecha {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.bitacora__entrada-titulo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--burgundy-950);
+}
+
+.bitacora__entrada-resumen {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.bitacora__entrada-criterios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.bitacora__criterio-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--burgundy-50);
+  color: var(--burgundy-800);
+  border: 1px solid var(--brand-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.bitacora__indicador-despliegue {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+/* Contenido Expandible */
+.bitacora__entrada-cuerpo {
+  padding: 24px;
+  border-top: 1px solid var(--brand-border);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #ffffff;
+  animation: slideDown 200ms ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bitacora__detalle-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bitacora__detalle-subtitulo {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--burgundy-900);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bitacora__detalle-bloque p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.bitacora__detalle-bloque--dificultad {
+  background: #fff8f8;
+  border-left: 3px solid var(--color-error);
+  padding: 12px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.bitacora__vacio {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--bg-surface);
+  border: 1px dashed var(--brand-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bitacora__btn-primario {
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--burgundy-800);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 600px) {
+  .bitacora__filtros-botones {
+    margin-left: 0;
+    width: 100%;
+  }
+  .bitacora__btn-secundario {
+    flex: 1;
+  }
+  .bitacora__tag-fecha {
+    margin-left: 0;
+    width: 100%;
+  }
+}

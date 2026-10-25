@@ -1,10 +1,32 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* src/index.css - Utilidades globales para el TP2 BlueTech */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
+/* Scrollbar estilizada con matices borgoña */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--burgundy-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--burgundy-200);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--burgundy-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy-400);
+}
+
+/* Ocultar elementos marcados con hidden de forma estricta */
+[hidden] {
+  display: none !important;
 }

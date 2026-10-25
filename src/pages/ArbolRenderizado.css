@@ -1,0 +1,264 @@
+/* ==========================================================================
+   ÁRBOL DE RENDERIZADO INTERACTIVO - BlueTech (Paleta Borgoña)
+   Criterio 13: Esquema interactivo que permite expandir y contraer componentes
+   ========================================================================== */
+
+.arbol-pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeInArbol 300ms ease forwards;
+}
+
+@keyframes fadeInArbol {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.arbol-pagina__cabecera {
+  text-align: left;
+}
+
+.arbol-pagina__insignia {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--burgundy-50);
+  border: 1px solid var(--brand-border);
+  color: var(--burgundy-800);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.arbol-pagina__titulo {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--burgundy-950);
+  margin-bottom: 8px;
+}
+
+.arbol-pagina__subtitulo {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Controles de expansión */
+.arbol-pagina__controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+}
+
+.arbol-pagina__btn-control {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--burgundy-50);
+  border: 1px solid var(--brand-border);
+  color: var(--burgundy-800);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.arbol-pagina__btn-control:hover {
+  background: var(--burgundy-800);
+  color: #ffffff;
+  border-color: var(--burgundy-800);
+}
+
+.arbol-pagina__contador-nodos {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Estructura del Árbol */
+.arbol-pagina__contenedor-arbol {
+  background: var(--bg-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+
+.arbol__lista-raiz,
+.arbol__sublista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.arbol__sublista {
+  padding-left: 28px;
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* Línea conectora del árbol */
+.arbol__sublista::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 16px;
+  left: 12px;
+  width: 2px;
+  background: var(--brand-border-strong);
+}
+
+.arbol__item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.arbol__sublista > .arbol__item::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: -16px;
+  width: 14px;
+  height: 2px;
+  background: var(--brand-border-strong);
+}
+
+/* Tarjeta de cada nodo */
+.arbol__tarjeta-nodo {
+  background: #fdfafc;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  transition: all var(--transition-fast);
+}
+
+.arbol__tarjeta-nodo:hover {
+  border-color: var(--burgundy-400);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.arbol__nodo-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.arbol__btn-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xs);
+  background: var(--burgundy-700);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background var(--transition-fast);
+}
+
+.arbol__btn-toggle:hover {
+  background: var(--accent-primary);
+}
+
+.arbol__punto-hoja {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--burgundy-300);
+  font-size: 1.4rem;
+}
+
+.arbol__nodo-identificacion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arbol__nodo-tag {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--burgundy-900);
+  background: var(--burgundy-50);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--brand-border);
+}
+
+.arbol__nodo-tipo {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  background: var(--accent-tag-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.arbol__nodo-archivo {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  margin-left: auto;
+}
+
+.arbol__nodo-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.arbol__nodo-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--brand-border);
+  font-size: var(--fs-xs);
+}
+
+.arbol__meta-item {
+  color: var(--text-secondary);
+}
+
+.arbol__meta-item strong {
+  color: var(--burgundy-900);
+  margin-right: 4px;
+}
+
+.arbol__meta-item code {
+  font-family: 'Consolas', monospace;
+  background: var(--burgundy-50);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--burgundy-800);
+}
+
+@media (max-width: 600px) {
+  .arbol__sublista {
+    padding-left: 14px;
+  }
+  .arbol__nodo-archivo {
+    margin-left: 0;
+    width: 100%;
+  }
+}

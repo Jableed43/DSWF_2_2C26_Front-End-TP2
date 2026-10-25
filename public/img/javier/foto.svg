@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgJavierFoto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3c1238" />
+      <stop offset="100%" stop-color="#1d071b" />
+    </linearGradient>
+    <linearGradient id="skinJavier" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d0aa" />
+      <stop offset="100%" stop-color="#e0b284" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="100" fill="url(#bgJavierFoto)" />
+  <!-- Body / Hoodie -->
+  <path d="M45 200 C45 150 70 142 100 142 C130 142 155 150 155 200 Z" fill="#4d1848" />
+  <path d="M78 155 L100 185 L122 155 Z" fill="#2d0d2a" />
+  <!-- Neck -->
+  <rect x="88" y="120" width="24" height="25" fill="#e0b284" rx="4" />
+  <!-- Head -->
+  <ellipse cx="100" cy="92" rx="35" ry="40" fill="url(#skinJavier)" />
+  <!-- Hair (short modern cut) -->
+  <path d="M65 85 C65 52 82 46 100 46 C118 46 135 52 135 85 C128 70 115 65 100 65 C85 65 72 70 65 85 Z" fill="#1e141d" />
+  <!-- Beard / Stubble -->
+  <path d="M74 100 C74 128 90 134 100 134 C110 134 126 128 126 100 C126 112 115 126 100 126 C85 126 74 112 74 100 Z" fill="#1e141d" opacity="0.6" />
+  <!-- Eyes -->
+  <circle cx="87" cy="90" r="4" fill="#1d071b" />
+  <circle cx="113" cy="90" r="4" fill="#1d071b" />
+  <circle cx="88.5" cy="88.5" r="1.2" fill="#ffffff" />
+  <circle cx="114.5" cy="88.5" r="1.2" fill="#ffffff" />
+  <!-- Eyebrows -->
+  <path d="M80 82 Q87 80 94 82" stroke="#1e141d" stroke-width="3" fill="none" stroke-linecap="round" />
+  <path d="M106 82 Q113 80 120 82" stroke="#1e141d" stroke-width="3" fill="none" stroke-linecap="round" />
+  <!-- Smile -->
+  <path d="M92 110 Q100 116 108 110" stroke="#1d071b" stroke-width="2.5" fill="none" stroke-linecap="round" />
+</svg>

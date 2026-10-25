@@ -29,17 +29,14 @@ function RepositoriosAPI() {
             )
 
             if (!respuesta.ok) {
-              if (
-                respuesta.status === 403 ||
-                respuesta.status === 429
-              ) {
+              if (respuesta.status === 403 || respuesta.status === 429) {
                 throw new Error(
-                  'GitHub limitó las consultas. Esperá un rato y reintentá.'
+                  'GitHub limitó las consultas temporalmente (Rate Limit). Esperá unos minutos y presioná Reintentar.'
                 )
               }
 
               throw new Error(
-                'No se pudieron obtener los repositorios. Reintentá la consulta.'
+                `No se pudo obtener información de ${repositorio}. Reintentá la consulta.`
               )
             }
 
@@ -54,7 +51,7 @@ function RepositoriosAPI() {
         if (!controlador.signal.aborted) {
           setError(
             problema instanceof TypeError
-              ? 'No se pudo conectar con GitHub. Revisá tu conexión y reintentá.'
+              ? 'No se pudo conectar con la API de GitHub. Verificá tu conexión a internet.'
               : problema.message
           )
         }
@@ -75,13 +72,17 @@ function RepositoriosAPI() {
   }
 
   return (
-    <section className="catalogo">
-      <h2>Proyectos en GitHub</h2>
+    <section className="catalogo" aria-labelledby="titulo-api-github">
+      <div style={{ display: 'inline-block', padding: '4px 12px', borderRadius: '9999px', background: 'var(--burgundy-50)', border: '1px solid var(--brand-border)', color: 'var(--burgundy-800)', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '12px' }}>
+        Criterio 12 · Nivel Propone
+      </div>
+
+      <h2 id="titulo-api-github">Proyectos Oficiales en GitHub (API Pública)</h2>
 
       <p>
-        Esta sección consulta la API pública de GitHub y muestra
-        la descripción, las estrellas y el lenguaje principal
-        de los repositorios de React, Vue y Angular.
+        Esta sección consume en vivo los endpoints públicos de la <strong>GitHub REST API</strong> sin requerir
+        claves privadas. Compara en tiempo real la popularidad (estrellas), el lenguaje de desarrollo
+        y las descripciones de los tres frameworks/librerías líderes en el desarrollo frontend: React, Vue y Angular.
       </p>
 
       <div className="catalogo__controles">
@@ -91,21 +92,28 @@ function RepositoriosAPI() {
           disabled={cargando}
         >
           {cargando
-            ? 'Consultando...'
+            ? 'Consultando API...'
             : error
-              ? 'Reintentar'
-              : 'Actualizar datos'}
+              ? 'Reintentar consulta'
+              : 'Actualizar estadísticas'}
         </button>
       </div>
 
       {cargando && (
-        <p role="status">Cargando datos de GitHub...</p>
+        <div className="catalogo__vacio" role="status">
+          <p>⏳ Consultando datos actualizados de GitHub en tiempo real...</p>
+        </div>
       )}
 
       {!cargando && error && (
-        <p className="catalogo__vacio" role="alert">
-          {error}
-        </p>
+        <div className="catalogo__vacio" role="alert" style={{ borderColor: 'var(--color-error)', backgroundColor: 'var(--color-error-bg)' }}>
+          <p style={{ color: 'var(--color-error)', fontWeight: 600 }}>{error}</p>
+          <div style={{ marginTop: '14px' }}>
+            <button type="button" onClick={actualizar}>
+              Reintentar ahora
+            </button>
+          </div>
+        </div>
       )}
 
       {!cargando && !error && (
@@ -115,27 +123,37 @@ function RepositoriosAPI() {
               className="catalogo__tarjeta"
               key={repositorio.id}
             >
-              <h3>{repositorio.full_name}</h3>
+              <h3>{repositorio.name}</h3>
+              <span className="catalogo__categoria">
+                {repositorio.full_name}
+              </span>
 
-              <p>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginBottom: '14px', flex: 1, lineHeight: 1.5 }}>
                 {repositorio.description || 'Sin descripción disponible.'}
               </p>
 
-              <p>
-                Lenguaje principal: {repositorio.language || 'No informado'}
-              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.8rem', color: 'var(--burgundy-900)', borderTop: '1px solid var(--brand-border)', paddingTop: '12px', marginTop: 'auto' }}>
+                <p>
+                  <strong>Lenguaje principal:</strong> {repositorio.language || 'No informado'}
+                </p>
+                <p>
+                  <strong>⭐ Estrellas:</strong> {repositorio.stargazers_count.toLocaleString('es-AR')}
+                </p>
+                <p>
+                  <strong>🍴 Forks:</strong> {repositorio.forks_count.toLocaleString('es-AR')}
+                </p>
+              </div>
 
-              <p>
-                Estrellas: {repositorio.stargazers_count.toLocaleString('es-AR')}
-              </p>
-
-              <a
-                href={repositorio.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver repositorio en GitHub
-              </a>
+              <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid var(--brand-border)' }}>
+                <a
+                  href={repositorio.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: '0.85rem', fontWeight: 700 }}
+                >
+                  Ver repositorio oficial en GitHub →
+                </a>
+              </div>
             </article>
           ))}
         </div>

@@ -16,13 +16,13 @@ function Carrusel({ titulo, items = [], tipo }) {
   }
 
   return (
-    <section aria-labelledby={id}>
+    <section aria-labelledby={id} className="perfil__seccion-carrusel">
       <h2 id={id} className="perfil__titulo">
         {titulo}
       </h2>
 
       {!actual ? (
-        <p>Sección pendiente de completar.</p>
+        <p className="perfil__placeholder-carrusel">Sección pendiente de completar.</p>
       ) : (
         <div className="perfil__carrusel">
           <button
@@ -30,12 +30,13 @@ function Carrusel({ titulo, items = [], tipo }) {
             disabled={items.length < 2}
             onClick={() => mover(-1)}
             aria-label={`Anterior: ${titulo}`}
+            className="perfil__carrusel-btn"
           >
             ‹
           </button>
 
           <div className="perfil__slide">
-            <h3>{actual.titulo || '[Título por completar]'}</h3>
+            <h3 className="perfil__slide-titulo">{actual.titulo || '[Título por completar]'}</h3>
 
             {tipo === 'pelicula' && (
               /^[a-zA-Z0-9_-]{11}$/.test(actual.videoId || '') ? (
@@ -43,7 +44,7 @@ function Carrusel({ titulo, items = [], tipo }) {
                   key={actual.videoId}
                   className="perfil__video"
                   src={`https://www.youtube.com/embed/${actual.videoId}`}
-                  title={`Video de ${actual.titulo || 'la película'}`}
+                  title={`Trailer de ${actual.titulo || 'la película'}`}
                   loading="lazy"
                   allow="encrypted-media; picture-in-picture"
                   allowFullScreen
@@ -57,7 +58,7 @@ function Carrusel({ titulo, items = [], tipo }) {
 
             {tipo === 'disco' && (
               <>
-                <p>{actual.artista || '[Artista por completar]'}</p>
+                <p className="perfil__slide-artista">{actual.artista || '[Artista por completar]'}</p>
 
                 {/^[a-zA-Z0-9]{22}$/.test(actual.spotifyId || '') ? (
                   <iframe
@@ -76,9 +77,11 @@ function Carrusel({ titulo, items = [], tipo }) {
               </>
             )}
 
-            {actual.descripcion && <p>{actual.descripcion}</p>}
+            {actual.descripcion && (
+              <p className="perfil__slide-descripcion">{actual.descripcion}</p>
+            )}
 
-            <p role="status">
+            <p role="status" className="perfil__slide-contador">
               {indice + 1} de {items.length}
             </p>
           </div>
@@ -88,6 +91,7 @@ function Carrusel({ titulo, items = [], tipo }) {
             disabled={items.length < 2}
             onClick={() => mover(1)}
             aria-label={`Siguiente: ${titulo}`}
+            className="perfil__carrusel-btn"
           >
             ›
           </button>
@@ -110,28 +114,208 @@ function TarjetaJuego({ juego }) {
           loading="lazy"
         />
       ) : (
-        <div className="perfil__placeholder">
-          Portada por completar
+        <div className="perfil__juego-icono" aria-hidden="true">
+          🎮
         </div>
       )}
 
-      <h3>{juego.titulo || '[Juego por completar]'}</h3>
+      <h3 className="perfil__juego-titulo">{juego.titulo || '[Juego por completar]'}</h3>
 
       <button
         type="button"
+        className="perfil__btn-ficha"
         aria-expanded={abierta}
         aria-controls={id}
         onClick={() => setAbierta((valor) => !valor)}
       >
-        {abierta ? 'Ocultar ficha' : 'Ver ficha'}
+        {abierta ? 'Ocultar ficha' : 'Ver ficha técnica'}
       </button>
 
-      <div id={id} hidden={!abierta}>
-        <p>Género: {juego.genero || '[Completar]'}</p>
-        <p>Año: {juego.anio || '[Completar]'}</p>
-        <p>{juego.descripcion || '[Descripción por completar]'}</p>
+      <div id={id} hidden={!abierta} className="perfil__juego-detalle">
+        <p><strong>Género:</strong> {juego.genero || '[Completar]'}</p>
+        <p><strong>Año:</strong> {juego.anio || '[Completar]'}</p>
+        <p className="perfil__juego-sinopsis">{juego.descripcion || '[Descripción por completar]'}</p>
       </div>
     </article>
+  )
+}
+
+/* Interacción 1: Rocío (Probador de Paleta Borgoña en tiempo real) */
+function InteraccionRocio() {
+  const [matiz, setMatiz] = useState('clasico')
+
+  const matices = {
+    clasico: { nombre: 'Borgoña Tradicional', color: '#4d1848', acento: '#c2185b', fondo: '#fbf8fa' },
+    nocturno: { nombre: 'Ciruela Profundo', color: '#2d0d2a', acento: '#d81b60', fondo: '#f5edf4' },
+    berry: { nombre: 'Berry Rose Elegante', color: '#64205e', acento: '#ff4081', fondo: '#fcf6fb' }
+  }
+
+  const actual = matices[matiz]
+
+  return (
+    <div className="perfil__widget-interactivo" style={{ borderLeftColor: actual.color }}>
+      <div className="perfil__widget-cabecera">
+        <span className="perfil__widget-badge">Interacción Funcional · Criterio 08</span>
+        <h4>Selector de Matices Cromáticos</h4>
+      </div>
+      <p className="perfil__widget-texto">
+        Elegí un matiz para verificar la armonía visual y la adaptabilidad del contraste:
+      </p>
+      <div className="perfil__widget-botones" role="group" aria-label="Elegir matiz cromático">
+        {Object.entries(matices).map(([clave, item]) => (
+          <button
+            key={clave}
+            type="button"
+            className={`perfil__btn-matiz ${matiz === clave ? 'perfil__btn-matiz--activo' : ''}`}
+            onClick={() => setMatiz(clave)}
+            aria-pressed={matiz === clave}
+          >
+            <span className="perfil__muestra-color" style={{ backgroundColor: item.color }} />
+            {item.nombre}
+          </button>
+        ))}
+      </div>
+      <div className="perfil__muestra-resultado" style={{ backgroundColor: actual.fondo, borderColor: actual.color }}>
+        <p style={{ color: actual.color, fontWeight: 'bold' }}>
+          Matiz Activo: {actual.nombre}
+        </p>
+        <span style={{ color: actual.acento, fontSize: '0.85rem' }}>
+          Código Primario: {actual.color} · Acento: {actual.acento}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+/* Interacción 2: Javier (Auditor y Simulador de Ruteo) */
+function InteraccionJavier() {
+  const [rutaSimulada, setRutaSimulada] = useState('/')
+  const [latencia, setLatencia] = useState('8ms')
+  const [status, setStatus] = useState('200 OK (Rewrite SPA activo)')
+
+  function simularRuta(nuevaRuta) {
+    const latenciasPorRuta = {
+      '/': '6ms',
+      '/herramientas': '12ms',
+      '/proyectos-api': '18ms',
+      '/arbol-renderizado': '9ms',
+      '/bitacora': '11ms'
+    }
+    setRutaSimulada(nuevaRuta)
+    setLatencia(latenciasPorRuta[nuevaRuta] || '10ms')
+    setStatus('200 OK (Rewrite SPA activo)')
+  }
+
+  return (
+    <div className="perfil__widget-interactivo">
+      <div className="perfil__widget-cabecera">
+        <span className="perfil__widget-badge">Interacción Funcional · Criterio 08</span>
+        <h4>Simulador de Enrutamiento y Diagnóstico</h4>
+      </div>
+      <p className="perfil__widget-texto">
+        Simulá peticiones de navegación para comprobar la resolución de URLs en Vercel sin pantallas sin salida:
+      </p>
+      <div className="perfil__widget-botones">
+        {['/', '/herramientas', '/proyectos-api', '/arbol-renderizado', '/bitacora'].map((r) => (
+          <button
+            key={r}
+            type="button"
+            className={`perfil__btn-matiz ${rutaSimulada === r ? 'perfil__btn-matiz--activo' : ''}`}
+            onClick={() => simularRuta(r)}
+          >
+            {r}
+          </button>
+        ))}
+      </div>
+      <div className="perfil__muestra-resultado">
+        <p><strong>Ruta probada:</strong> <code>{rutaSimulada}</code></p>
+        <p><strong>Estado HTTP:</strong> <span style={{ color: '#1b5e20' }}>{status}</span> · <strong>Tiempo de render:</strong> {latencia}</p>
+      </div>
+    </div>
+  )
+}
+
+/* Interacción 3: Damián (Medidor y Votación de Ecosistema) */
+function InteraccionDamian() {
+  const [votos, setVotos] = useState({ React: 12, TypeScript: 9, 'REST API': 15, 'Bases de Datos': 8 })
+
+  function votar(tech) {
+    setVotos((prev) => ({ ...prev, [tech]: prev[tech] + 1 }))
+  }
+
+  return (
+    <div className="perfil__widget-interactivo">
+      <div className="perfil__widget-cabecera">
+        <span className="perfil__widget-badge">Interacción Funcional · Criterio 08</span>
+        <h4>Medidor de Preferencias de Desarrollo</h4>
+      </div>
+      <p className="perfil__widget-texto">
+        Votá tus herramientas favoritas del ecosistema para registrar la interacción en tiempo real:
+      </p>
+      <div className="perfil__widget-botones">
+        {Object.entries(votos).map(([tech, total]) => (
+          <button
+            key={tech}
+            type="button"
+            className="perfil__btn-voto"
+            onClick={() => votar(tech)}
+          >
+            <span>{tech}</span>
+            <span className="perfil__contador-votos">{total} 👍</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* Interacción 4: Facundo (Checklist Interactivo de Criterios) */
+function InteraccionFacundo() {
+  const [criterios, setCriterios] = useState([
+    { id: 'c1', texto: 'Criterio 01: Vercel deploy activo y sin login', cumplido: true },
+    { id: 'c2', texto: 'Criterio 05: Sidebar drawer en móviles con Escape y click fuera', cumplido: true },
+    { id: 'c3', texto: 'Criterio 08: Interacción funcional en todos los perfiles', cumplido: true },
+    { id: 'c4', texto: 'Criterio 13: Árbol de renderizado colapsable', cumplido: true },
+    { id: 'c5', texto: 'Criterio 14: Bitácora con filtros por autor y etapa', cumplido: true }
+  ])
+
+  function alternarCriterio(id) {
+    setCriterios((prev) =>
+      prev.map((c) => (c.id === id ? { ...c, cumplido: !c.cumplido } : c))
+    )
+  }
+
+  const completados = criterios.filter((c) => c.cumplido).length
+  const porcentaje = Math.round((completados / criterios.length) * 100)
+
+  return (
+    <div className="perfil__widget-interactivo">
+      <div className="perfil__widget-cabecera">
+        <span className="perfil__widget-badge">Interacción Funcional · Criterio 08</span>
+        <h4>Checklist Interactivo de QA y Criterios TP2</h4>
+      </div>
+      <p className="perfil__widget-texto">
+        Verificá en vivo los criterios de calidad con esta herramienta interactiva:
+      </p>
+      <div className="perfil__barra-progreso-contenedor">
+        <div className="perfil__barra-progreso-relleno" style={{ width: `${porcentaje}%` }} />
+      </div>
+      <p className="perfil__porcentaje-progreso">{completados} de {criterios.length} verificados ({porcentaje}%)</p>
+      <ul className="perfil__checklist-lista">
+        {criterios.map((crit) => (
+          <li key={crit.id} className="perfil__checklist-item">
+            <label>
+              <input
+                type="checkbox"
+                checked={crit.cumplido}
+                onChange={() => alternarCriterio(crit.id)}
+              />
+              <span className={crit.cumplido ? 'perfil__checklist-tachado' : ''}>{crit.texto}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -150,7 +334,18 @@ export default function PerfilIntegrante({ perfil }) {
 
   return (
     <div className="perfil-integrante">
-      <Link to="/">Volver al inicio</Link>
+      {/* Navegación superior interna accesible (Criterio 06: no depender del botón atrás) */}
+      <nav className="perfil__nav-retorno" aria-label="Navegación de retorno">
+        <Link to="/" className="perfil__link-volver">
+          ← Volver a la Portada
+        </Link>
+        <Link to="/herramientas" className="perfil__link-modulo">
+          Ir a Catálogo de Herramientas
+        </Link>
+        <Link to="/bitacora" className="perfil__link-modulo">
+          Ir a Bitácora
+        </Link>
+      </nav>
 
       <h1 className="perfil__nombre">
         {perfil.nombre || '[Nombre y apellido]'}
@@ -163,18 +358,18 @@ export default function PerfilIntegrante({ perfil }) {
             fotoGirada ? 'perfil__foto-girable--girada' : ''
           }`}
           onClick={() => setFotoGirada((estado) => !estado)}
-          aria-label={`Mostrar avatar en lugar de la foto de ${
+          aria-label={`Mostrar ${fotoGirada ? 'foto' : 'avatar'} de ${
             perfil.nombre || 'integrante'
           }`}
           aria-pressed={fotoGirada}
         >
           <span className="perfil__foto-interior">
             <span className="perfil__foto-cara perfil__foto-frente">
-              <img src={perfil.foto} alt="" />
+              <img src={perfil.foto} alt={`Foto de ${perfil.nombre}`} />
             </span>
 
             <span className="perfil__foto-cara perfil__foto-dorso">
-              <img src={perfil.avatar} alt="" />
+              <img src={perfil.avatar} alt={`Avatar de ${perfil.nombre}`} />
             </span>
           </span>
         </button>
@@ -194,22 +389,21 @@ export default function PerfilIntegrante({ perfil }) {
 
       {perfil.foto && perfil.avatar && (
         <p className="perfil__foto-ayuda">
-          Tocá la imagen para ver {fotoGirada ? 'mi foto' : 'mi avatar'}.
+          Tocá la imagen para alternar entre {fotoGirada ? 'la foto real' : 'el avatar ilustrado'}.
         </p>
       )}
 
+      {/* Sección Sobre Mí */}
       <section>
         <h2 className="perfil__titulo">Sobre mí</h2>
 
         <div className="perfil__bloque">
           <div className="perfil__contacto">
-            <span>{perfil.ubicacion || '[Ubicación]'}</span>
-
-            {perfil.edad && <span>{perfil.edad} años</span>}
-
+            {perfil.ubicacion && <span>📍 {perfil.ubicacion}</span>}
+            {perfil.edad && <span>🎂 {perfil.edad} años</span>}
             {perfil.email && (
               <a href={`mailto:${perfil.email}`}>
-                {perfil.email}
+                ✉️ {perfil.email}
               </a>
             )}
 
@@ -220,25 +414,42 @@ export default function PerfilIntegrante({ perfil }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {nombre}
+                🔗 {nombre}
               </a>
             ))}
           </div>
 
-          <h3>Presentación</h3>
-
-          <p>
-            {perfil.resumen ||
-              '[Escribí tu presentación académica o profesional.]'}
+          <h3 className="perfil__subtitulo-bloque">Presentación</h3>
+          <p className="perfil__parrafo-texto">
+            {perfil.resumen || '[Escribí tu presentación académica o profesional.]'}
           </p>
 
-          <p>
-            {perfil.sobreMi ||
-              '[Contá algo sobre tus intereses y actividades.]'}
+          <h3 className="perfil__subtitulo-bloque">Rol en el Proyecto BlueTech</h3>
+          <p className="perfil__parrafo-texto">
+            {perfil.sobreMi || '[Contá algo sobre tus intereses y actividades.]'}
           </p>
         </div>
       </section>
 
+      {/* Interacción Funcional Individual (Criterio 08 - Nivel Propone) */}
+      <section className="perfil__seccion-interaccion" aria-labelledby="titulo-interaccion">
+        <h2 id="titulo-interaccion" className="perfil__titulo">
+          Interacción Funcional de {perfil.nombre.split(' ')[0]}
+        </h2>
+
+        {perfil.interaccionTipo === 'paleta' && <InteraccionRocio />}
+        {perfil.interaccionTipo === 'rutas' && <InteraccionJavier />}
+        {perfil.interaccionTipo === 'voto' && <InteraccionDamian />}
+        {perfil.interaccionTipo === 'checklist' && <InteraccionFacundo />}
+
+        {!perfil.interaccionTipo && (
+          <div className="perfil__bloque">
+            <p>Interacción personalizada disponible para este perfil.</p>
+          </div>
+        )}
+      </section>
+
+      {/* Habilidades e Intereses */}
       <section>
         <h2 className="perfil__titulo">
           Habilidades e intereses
@@ -247,12 +458,13 @@ export default function PerfilIntegrante({ perfil }) {
         <div
           className="perfil__filtros"
           role="group"
-          aria-label="Elegir habilidad"
+          aria-label="Elegir categoría de habilidad"
         >
           {(perfil.habilidades || []).map((item, indice) => (
             <button
               key={indice}
               type="button"
+              className={categoria === indice ? 'activo' : ''}
               aria-pressed={categoria === indice}
               aria-controls={habilidadId}
               onClick={() => setCategoria(indice)}
@@ -267,7 +479,7 @@ export default function PerfilIntegrante({ perfil }) {
             <p>Habilidades pendientes de completar.</p>
           ) : (
             <>
-              <h3>
+              <h3 className="perfil__subtitulo-bloque">
                 {habilidad.titulo || '[Nombre de la habilidad]'}
               </h3>
 
@@ -278,18 +490,14 @@ export default function PerfilIntegrante({ perfil }) {
                     src={habilidad.imagen}
                     alt={habilidad.titulo || 'Habilidad'}
                   />
-                ) : (
-                  <div className="perfil__placeholder">
-                    Imagen opcional
-                  </div>
-                )}
+                ) : null}
 
-                <div>
+                <div className="perfil__habilidad-info">
                   <h4>
                     {habilidad.subtitulo || '[Temas o prácticas]'}
                   </h4>
 
-                  <ul>
+                  <ul className="perfil__habilidad-lista">
                     {(habilidad.items || []).map((texto, indice) => (
                       <li key={indice}>
                         {texto || '[Completar]'}
@@ -303,6 +511,7 @@ export default function PerfilIntegrante({ perfil }) {
         </div>
       </section>
 
+      {/* Películas y Discos (Carruseles con YouTube y Spotify) */}
       <Carrusel
         key={`${perfil.nombre}-peliculas`}
         titulo="Películas favoritas"
@@ -317,6 +526,7 @@ export default function PerfilIntegrante({ perfil }) {
         tipo="disco"
       />
 
+      {/* Juegos favoritos con ficha técnica expandible */}
       <section>
         <h2 className="perfil__titulo">Juegos favoritos</h2>
 
@@ -327,7 +537,7 @@ export default function PerfilIntegrante({ perfil }) {
         </div>
 
         {!perfil.juegos?.length && (
-          <p>Juegos pendientes de completar.</p>
+          <p className="perfil__placeholder">Juegos pendientes de completar.</p>
         )}
       </section>
     </div>

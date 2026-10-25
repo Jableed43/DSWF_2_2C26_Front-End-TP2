@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgFacuFoto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d0d2a" />
+      <stop offset="100%" stop-color="#4d1848" />
+    </linearGradient>
+    <linearGradient id="skinFacu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe4c4" />
+      <stop offset="100%" stop-color="#f5cd9e" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="100" fill="url(#bgFacuFoto)" />
+  <!-- Body / Jacket -->
+  <path d="M46 200 C46 150 72 144 100 144 C128 144 154 150 154 200 Z" fill="#64205e" />
+  <path d="M85 146 L100 178 L115 146 Z" fill="#ffffff" />
+  <!-- Neck -->
+  <rect x="88" y="122" width="24" height="25" fill="#f5cd9e" rx="4" />
+  <!-- Head -->
+  <ellipse cx="100" cy="94" rx="35" ry="40" fill="url(#skinFacu)" />
+  <!-- Curly / Wavy Hair -->
+  <path d="M64 88 C60 55 75 44 100 44 C125 44 140 55 136 88 C128 72 118 64 100 64 C82 64 72 72 64 88 Z" fill="#382218" />
+  <circle cx="70" cy="65" r="8" fill="#382218" />
+  <circle cx="85" cy="52" r="9" fill="#382218" />
+  <circle cx="102" cy="50" r="9" fill="#382218" />
+  <circle cx="118" cy="54" r="8" fill="#382218" />
+  <circle cx="130" cy="66" r="8" fill="#382218" />
+  <!-- Glasses -->
+  <rect x="76" y="86" width="20" height="15" rx="3" fill="none" stroke="#2d0d2a" stroke-width="2.5" />
+  <rect x="104" y="86" width="20" height="15" rx="3" fill="none" stroke="#2d0d2a" stroke-width="2.5" />
+  <line x1="96" y1="92" x2="104" y2="92" stroke="#2d0d2a" stroke-width="2.5" />
+  <!-- Eyes -->
+  <circle cx="86" cy="93" r="3.5" fill="#2d0d2a" />
+  <circle cx="114" cy="93" r="3.5" fill="#2d0d2a" />
+  <!-- Smile -->
+  <path d="M92 114 Q100 120 108 114" stroke="#2d0d2a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+</svg>

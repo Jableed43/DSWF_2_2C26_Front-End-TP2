@@ -1,217 +1,218 @@
+/* ==========================================================================
+   CATÁLOGO DE HERRAMIENTAS - BlueTech (Paleta Borgoña 60-30-10)
+   Criterio 10 (JSON 20+ registros) & Criterio 11 (Búsqueda y filtro reactivos)
+   ========================================================================== */
+
 .catalogo {
   width: 100%;
-  max-width: 1100px;
+  max-width: var(--max-content-width);
   margin: 0 auto;
-  padding: 24px;
+  padding: 32px 28px;
   box-sizing: border-box;
-  color: #172b4d;
-  background: #f4f7fc;
-  border-radius: 16px;
-  font-family: Arial, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
   text-align: left;
+  animation: fadeInCatalogo 300ms ease forwards;
+}
+
+@keyframes fadeInCatalogo {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .catalogo h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  color: var(--burgundy-950);
   margin-top: 0;
-  font-size: 1.8rem;
+  margin-bottom: 6px;
 }
 
+.catalogo > p {
+  color: var(--text-secondary);
+  font-size: var(--fs-base);
+  margin-bottom: 24px;
+}
+
+/* Controles de Búsqueda y Filtro */
 .catalogo__controles {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 16px;
-  margin-top: 24px;
+  padding: 20px;
+  background: #fdfafc;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
 }
 
 .catalogo__campo {
   display: flex;
   flex: 1 1 220px;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
 }
 
 .catalogo label {
-  font-weight: bold;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--burgundy-900);
 }
 
 .catalogo input,
 .catalogo select,
 .catalogo button {
   min-height: 44px;
-  padding: 10px 12px;
-  border: 1px solid #718096;
-  border-radius: 8px;
-  font: inherit;
+  padding: 10px 14px;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--fs-sm);
   box-sizing: border-box;
+  transition: all var(--transition-fast);
 }
 
 .catalogo input,
 .catalogo select {
   width: 100%;
-  color: #172b4d;
-  background: white;
-}
-
-.catalogo button {
-  color: white;
-  background: #1955b5;
-  border-color: #1955b5;
-  cursor: pointer;
-}
-
-.catalogo button:hover {
-  background: #123f88;
+  color: var(--text-primary);
+  background: #ffffff;
 }
 
 .catalogo input:focus-visible,
-.catalogo select:focus-visible,
-.catalogo button:focus-visible,
-.catalogo summary:focus-visible {
-  outline: 3px solid #995600;
-  outline-offset: 3px;
+.catalogo select:focus-visible {
+  border-color: var(--burgundy-700);
+  outline: 3px solid rgba(100, 32, 94, 0.2);
+}
+
+.catalogo button {
+  color: #ffffff;
+  background: var(--burgundy-800);
+  border-color: var(--burgundy-800);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.catalogo button:hover:not(:disabled) {
+  background: var(--burgundy-700);
+  border-color: var(--burgundy-700);
+}
+
+.catalogo button:disabled {
+  background: var(--burgundy-300);
+  border-color: var(--burgundy-300);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .catalogo__contador {
-  margin: 24px 0 16px;
+  margin: 16px 0 20px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
+/* Grilla de Tarjetas */
 .catalogo__lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
 .catalogo__tarjeta {
   min-width: 0;
-  padding: 20px;
-  background: white;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  overflow-wrap: anywhere;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.catalogo__tarjeta:hover {
+  border-color: var(--burgundy-400);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .catalogo__tarjeta h3 {
-  margin: 0 0 12px;
-  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--burgundy-950);
 }
 
 .catalogo__categoria {
   display: inline-block;
-  margin: 0 0 16px;
-  padding: 5px 10px;
-  color: #16458a;
-  background: #e7efff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  align-self: flex-start;
+  margin: 0 0 14px;
+  padding: 4px 10px;
+  color: var(--accent-primary);
+  background: var(--accent-tag-bg);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.catalogo details {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--brand-border);
 }
 
 .catalogo summary {
-  color: #1955b5;
-  font-weight: bold;
+  color: var(--burgundy-800);
+  font-weight: 700;
+  font-size: var(--fs-xs);
   cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--transition-fast);
+}
+
+.catalogo summary:hover {
+  color: var(--accent-primary);
 }
 
 .catalogo details p {
+  margin-top: 8px;
   margin-bottom: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
 .catalogo__vacio {
-  padding: 20px;
-  background: white;
-  border: 1px dashed #718096;
-  border-radius: 12px;
+  padding: 32px;
+  background: #fdfafc;
+  border: 1px dashed var(--brand-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
   line-height: 1.6;
-}
-
-@media (max-width: 480px) {
-  .catalogo {
-    padding: 16px;
-  }
-
-  .catalogo__controles > button {
-    width: 100%;
-  }
+  text-align: center;
 }
 
 .catalogo + .catalogo {
-  margin-top: 32px;
+  margin-top: 36px;
 }
 
-.catalogo button:disabled {
-  background: #52647c;
-  border-color: #52647c;
-  cursor: wait;
-}
-
-.catalogo__tarjeta a {
-  color: #1955b5;
-  text-decoration: underline;
-}
-
-.catalogo__tarjeta a:focus-visible {
-  outline: 3px solid #995600;
-  outline-offset: 3px;
-}
-/* Paleta pastel: vino y violeta */
-
-.catalogo {
-  color: #49344f;
-  background: #f3edf7;
-}
-
-.catalogo input,
-.catalogo select {
-  color: #49344f;
-  background: #fffbff;
-  border-color: #a58cab;
-}
-
-.catalogo button {
-  color: #ffffff;
-  background: #784461;
-  border-color: #784461;
-}
-
-.catalogo button:hover:not(:disabled) {
-  background: #60364e;
-  border-color: #60364e;
-}
-
-.catalogo button:disabled {
-  color: #ffffff;
-  background: #79677e;
-  border-color: #79677e;
-}
-
-.catalogo__tarjeta {
-  background: #fff7fb;
-  border-color: #ddc9df;
-}
-
-.catalogo__categoria {
-  color: #653b70;
-  background: #eadcf1;
-}
-
-.catalogo summary,
-.catalogo__tarjeta a {
-  color: #783c60;
-}
-
-.catalogo__vacio {
-  color: #49344f;
-  background: #fff7fb;
-  border-color: #a58cab;
-}
-
-.catalogo input:focus-visible,
-.catalogo select:focus-visible,
-.catalogo button:focus-visible,
-.catalogo summary:focus-visible,
-.catalogo__tarjeta a:focus-visible {
-  outline: 3px solid #80518e;
-  outline-offset: 3px;
+@media (max-width: 600px) {
+  .catalogo {
+    padding: 20px 16px;
+  }
+  .catalogo__controles > button {
+    width: 100%;
+  }
 }
