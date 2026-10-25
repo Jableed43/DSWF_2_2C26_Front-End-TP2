@@ -1,5 +1,10 @@
 :root {
   --color-primario: #2563eb;
+  --color-secundario: #1e40af;
+  --color-fondo: #f8fafc;
+  --color-superficie: #ffffff;
+  --color-texto: #1e293b;
+  --color-texto-sec: #64748b;
   --color-oscuro: #14213d;
   --color-claro: #93c5fd;
   --color-sidebar-texto: #e2e8f0;
@@ -13,6 +18,8 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Poppins', system-ui, sans-serif;
   line-height: 1.5;
 }

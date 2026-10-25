@@ -9,6 +9,8 @@ function Carrusel({ titulo, items = [], tipo }) {
   const indice = items.length ? posicion % items.length : 0
   const actual = items[indice]
 
+  if (!actual) return null
+
   function mover(paso) {
     setPosicion(
       (valor) => (valor + paso + items.length) % items.length
@@ -21,80 +23,76 @@ function Carrusel({ titulo, items = [], tipo }) {
         {titulo}
       </h2>
 
-      {!actual ? (
-        <p>Sección pendiente de completar.</p>
-      ) : (
-        <div className="perfil__carrusel">
-          <button
-            type="button"
-            disabled={items.length < 2}
-            onClick={() => mover(-1)}
-            aria-label={`Anterior: ${titulo}`}
-          >
-            ‹
-          </button>
+      <div className="perfil__carrusel">
+        <button
+          type="button"
+          disabled={items.length < 2}
+          onClick={() => mover(-1)}
+          aria-label={`Anterior: ${titulo}`}
+        >
+          ‹
+        </button>
 
-          <div className="perfil__slide">
-            <h3>{actual.titulo || '[Título por completar]'}</h3>
+        <div className="perfil__slide">
+          <h3>{actual.titulo || '[Título por completar]'}</h3>
 
-            {tipo === 'pelicula' && (
-              /^[a-zA-Z0-9_-]{11}$/.test(actual.videoId || '') ? (
+          {tipo === 'pelicula' && (
+            /^[a-zA-Z0-9_-]{11}$/.test(actual.videoId || '') ? (
+              <iframe
+                key={actual.videoId}
+                className="perfil__video"
+                src={`https://www.youtube.com/embed/${actual.videoId}`}
+                title={`Video de ${actual.titulo || 'la película'}`}
+                loading="lazy"
+                allow="encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="perfil__placeholder">
+                Video por completar
+              </div>
+            )
+          )}
+
+          {tipo === 'disco' && (
+            <>
+              {actual.artista && <p>{actual.artista}</p>}
+
+              {/^[a-zA-Z0-9]{22}$/.test(actual.spotifyId || '') ? (
                 <iframe
-                  key={actual.videoId}
-                  className="perfil__video"
-                  src={`https://www.youtube.com/embed/${actual.videoId}`}
-                  title={`Video de ${actual.titulo || 'la película'}`}
+                  key={actual.spotifyId}
+                  className="perfil__spotify"
+                  src={`https://open.spotify.com/embed/${
+                    actual.spotifyTipo === 'track' ? 'track' : 'album'
+                  }/${actual.spotifyId}`}
+                  title={`Disco ${actual.titulo || 'seleccionado'}`}
                   loading="lazy"
-                  allow="encrypted-media; picture-in-picture"
-                  allowFullScreen
+                  allow="encrypted-media; fullscreen; picture-in-picture"
                 />
               ) : (
                 <div className="perfil__placeholder">
-                  Video por completar
+                  Disco por completar
                 </div>
-              )
-            )}
+              )}
+            </>
+          )}
 
-            {tipo === 'disco' && (
-              <>
-                {actual.artista && <p>{actual.artista}</p>}
+          {actual.descripcion && <p>{actual.descripcion}</p>}
 
-                {/^[a-zA-Z0-9]{22}$/.test(actual.spotifyId || '') ? (
-                  <iframe
-                    key={actual.spotifyId}
-                    className="perfil__spotify"
-                    src={`https://open.spotify.com/embed/${
-                      actual.spotifyTipo === 'track' ? 'track' : 'album'
-                    }/${actual.spotifyId}`}
-                    title={`Disco ${actual.titulo || 'seleccionado'}`}
-                    loading="lazy"
-                    allow="encrypted-media; fullscreen; picture-in-picture"
-                  />
-                ) : (
-                  <div className="perfil__placeholder">
-                    Disco por completar
-                  </div>
-                )}
-              </>
-            )}
-
-            {actual.descripcion && <p>{actual.descripcion}</p>}
-
-            <p role="status">
-              {indice + 1} de {items.length}
-            </p>
-          </div>
-
-          <button
-            type="button"
-            disabled={items.length < 2}
-            onClick={() => mover(1)}
-            aria-label={`Siguiente: ${titulo}`}
-          >
-            ›
-          </button>
+          <p role="status">
+            {indice + 1} de {items.length}
+          </p>
         </div>
-      )}
+
+        <button
+          type="button"
+          disabled={items.length < 2}
+          onClick={() => mover(1)}
+          aria-label={`Siguiente: ${titulo}`}
+        >
+          ›
+        </button>
+      </div>
     </section>
   )
 }
@@ -105,16 +103,12 @@ function TarjetaJuego({ juego }) {
 
   return (
     <article className="perfil__juego">
-      {juego.imagen ? (
+      {juego.imagen && (
         <img
           src={juego.imagen}
           alt={`Portada de ${juego.titulo || 'juego'}`}
           loading="lazy"
         />
-      ) : (
-        <div className="perfil__placeholder">
-          Portada por completar
-        </div>
       )}
 
       <h3>{juego.titulo || '[Juego por completar]'}</h3>
@@ -129,8 +123,8 @@ function TarjetaJuego({ juego }) {
       </button>
 
       <div id={id} hidden={!abierta}>
-        <p>Género: {juego.genero || '[Completar]'}</p>
-        <p>Año: {juego.anio || '[Completar]'}</p>
+        {juego.genero && <p>Género: {juego.genero}</p>}
+        {juego.anio && <p>Año: {juego.anio}</p>}
         {juego.descripcion && <p>{juego.descripcion}</p>}
       </div>
     </article>
@@ -203,11 +197,11 @@ export default function PerfilIntegrante({ perfil }) {
       <section>
         <h2 className="perfil__titulo">Sobre mí</h2>
 
-        <div className="perfil__bloque">
+        <div className="perfil__bloque perfil__bloque--estrecho">
           <div className="perfil__contacto">
-            <span>{perfil.ubicacion || '[Ubicación]'}</span>
+            {perfil.ubicacion && <span>📍 {perfil.ubicacion}</span>}
 
-            {perfil.edad && <span>{perfil.edad} años</span>}
+            {perfil.edad && <span>🎂 {perfil.edad} años</span>}
 
             {perfil.email && (
               <a href={`mailto:${perfil.email}`}>
@@ -227,83 +221,75 @@ export default function PerfilIntegrante({ perfil }) {
             ))}
           </div>
 
-          <h3>Presentación</h3>
-
-          <p>
-            {perfil.resumen ||
-              '[Escribí tu presentación académica o profesional.]'}
-          </p>
-
-          <p>
-            {perfil.sobreMi ||
-              '[Contá algo sobre tus intereses y actividades.]'}
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="perfil__titulo">
-          Habilidades e intereses
-        </h2>
-
-        <div
-          className="perfil__filtros"
-          role="group"
-          aria-label="Elegir habilidad"
-        >
-          {(perfil.habilidades || []).map((item, indice) => (
-            <button
-              key={indice}
-              type="button"
-              aria-pressed={categoria === indice}
-              aria-controls={habilidadId}
-              onClick={() => setCategoria(indice)}
-            >
-              {item.titulo || `[Habilidad ${indice + 1}]`}
-            </button>
-          ))}
-        </div>
-
-        <div id={habilidadId} className="perfil__bloque">
-          {!habilidad ? (
-            <p>Habilidades pendientes de completar.</p>
-          ) : (
+          {(perfil.resumen || perfil.sobreMi) && (
             <>
-              <h3>
-                {habilidad.titulo || '[Nombre de la habilidad]'}
-              </h3>
-
-              <div className="perfil__fila">
-                {habilidad.imagen ? (
-                  <img
-                    className="perfil__habilidad-img"
-                    src={habilidad.imagen}
-                    alt={habilidad.titulo || 'Habilidad'}
-                  />
-                ) : (
-                  <div className="perfil__placeholder">
-                    Imagen opcional
-                  </div>
-                )}
-
-                <div>
-                  <h4>
-                    {habilidad.subtitulo || '[Temas o prácticas]'}
-                  </h4>
-
-                  <ul>
-                    {(habilidad.items || []).map((texto, indice) => (
-                      <li key={indice}>
-                        {texto || '[Completar]'}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <h3>Presentación</h3>
+              {perfil.resumen && <p>{perfil.resumen}</p>}
+              {perfil.sobreMi && <p>{perfil.sobreMi}</p>}
             </>
           )}
         </div>
       </section>
+
+      {perfil.habilidades?.length > 0 && (
+        <section>
+          <h2 className="perfil__titulo">
+            Habilidades e intereses
+          </h2>
+
+          <div
+            className="perfil__filtros"
+            role="group"
+            aria-label="Elegir habilidad"
+          >
+            {perfil.habilidades.map((item, indice) => (
+              <button
+                key={indice}
+                type="button"
+                aria-pressed={categoria === indice}
+                aria-controls={habilidadId}
+                onClick={() => setCategoria(indice)}
+              >
+                {item.titulo || `[Habilidad ${indice + 1}]`}
+              </button>
+            ))}
+          </div>
+
+          <div id={habilidadId} className="perfil__bloque">
+            {habilidad && (
+              <>
+                <h3>
+                  {habilidad.titulo || '[Nombre de la habilidad]'}
+                </h3>
+
+                <div className="perfil__fila">
+                  {habilidad.imagen && (
+                    <img
+                      className="perfil__habilidad-img"
+                      src={habilidad.imagen}
+                      alt={habilidad.titulo || 'Habilidad'}
+                    />
+                  )}
+
+                  <div>
+                    {habilidad.subtitulo && (
+                      <h4>{habilidad.subtitulo}</h4>
+                    )}
+
+                    <ul>
+                      {(habilidad.items || []).map((texto, indice) => (
+                        <li key={indice}>
+                          {texto || '[Completar]'}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
 
       <Carrusel
         key={`${perfil.nombre}-peliculas`}
@@ -319,19 +305,17 @@ export default function PerfilIntegrante({ perfil }) {
         tipo="disco"
       />
 
-      <section>
-        <h2 className="perfil__titulo">Juegos favoritos</h2>
+      {perfil.juegos?.length > 0 && (
+        <section>
+          <h2 className="perfil__titulo">Juegos favoritos</h2>
 
-        <div className="perfil__juegos">
-          {(perfil.juegos || []).map((juego, indice) => (
-            <TarjetaJuego key={indice} juego={juego} />
-          ))}
-        </div>
-
-        {!perfil.juegos?.length && (
-          <p>Juegos pendientes de completar.</p>
-        )}
-      </section>
+          <div className="perfil__juegos">
+            {perfil.juegos.map((juego, indice) => (
+              <TarjetaJuego key={indice} juego={juego} />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

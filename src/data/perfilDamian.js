@@ -3,7 +3,7 @@ export const perfilDamian = {
   foto: '/img/damian/foto.jpg',
   avatar: '/img/damian/avatar.png',
   ubicacion: 'Buenos Aires, Argentina',
-  edad: '',
+  edad: '35',
   email: '',
   linkedin: '',
   github: 'https://github.com/damiangorosito',
@@ -37,9 +37,39 @@ export const perfilDamian = {
     }
   ],
 
-  peliculas: [],
+  peliculas: [
+    {
+      titulo: "El Señor de los Anillos",
+      videoId: "_nZdmwHrcnw"
+    },
+    {
+      titulo: "El Gran Pez",
+      videoId: "JZTE078OmZg"
+    },
+    {
+      titulo: "Pulp Fiction",
+      videoId: "r-PSxjTR174"
+    }
+  ],
 
-  discos: [],
+  discos: [
+    {
+      titulo: "Señales",
+      artista: "Callejeros",
+      spotifyId: "573TG9cHInMww2QgBeKqTy",
+      descripcion: "Canción favorita: Creo"
+    },
+    {
+      titulo: "Feed the Machine",
+      artista: "Poor Man's Poison",
+      spotifyId: "0lKGADKI9s71jBqJe5xYhn"
+    },
+    {
+      titulo: "Luzbelito",
+      artista: "Patricio Rey y sus Redonditos de Ricota",
+      spotifyId: "5kk3PbroAezGBPucpoN4oC"
+    }
+  ],
 
   juegos: [
     {
