@@ -72,7 +72,14 @@ export const arbolComponentes = {
                 {
                   nombre: 'Bitacora',
                   archivo: 'src/pages/Bitacora.jsx',
-                  nota: 'Ruta /bitacora'
+                  nota: 'Ruta /bitacora',
+                  hijos: [
+                    {
+                      nombre: 'BitacoraRegistros',
+                      archivo: 'src/components/BitacoraRegistros.jsx',
+                      nota: 'Lee bitacora.js, con filtro por etapa y registros desplegables'
+                    }
+                  ]
                 },
                 {
                   nombre: 'PerfilIntegrante',

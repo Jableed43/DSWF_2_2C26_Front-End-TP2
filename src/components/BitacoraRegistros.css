@@ -1,0 +1,124 @@
+.bitacora {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bitacora > p {
+  margin-top: 0.5rem;
+  color: var(--color-texto-sec);
+}
+
+.bitacora__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.bitacora__filtros button {
+  padding: 0.45rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-superficie);
+  color: var(--color-texto-sec);
+  box-shadow: 0 2px 8px rgb(30 41 59 / 8%);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.bitacora__filtros button:hover {
+  color: var(--color-primario);
+}
+
+.bitacora__filtros button[aria-pressed='true'] {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.bitacora__filtros button:focus-visible,
+.bitacora__registro summary:focus-visible {
+  outline: 3px solid var(--color-secundario);
+  outline-offset: 3px;
+}
+
+.bitacora__contador {
+  margin: 1.25rem 0 1rem;
+  color: var(--color-texto-sec);
+  font-size: 0.9rem;
+}
+
+.bitacora__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bitacora__registro {
+  background: var(--color-superficie);
+  border-top: 4px solid var(--color-primario);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(30 41 59 / 8%);
+}
+
+.bitacora__registro summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+}
+
+.bitacora__etapa {
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: var(--color-secundario);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.bitacora__titulo {
+  flex: 1 1 260px;
+  font-weight: 600;
+}
+
+.bitacora__fecha {
+  color: var(--color-texto-sec);
+  font-size: 0.85rem;
+}
+
+.bitacora__detalle {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.bitacora__detalle h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-secundario);
+}
+
+.bitacora__detalle p,
+.bitacora__detalle ul {
+  margin-top: 0.35rem;
+}
+
+.bitacora__detalle ul {
+  padding-left: 1.25rem;
+}
+
+.bitacora__detalle li {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 480px) {
+  .bitacora__registro summary {
+    padding: 1rem;
+  }
+
+  .bitacora__detalle {
+    padding: 0 1rem 1rem;
+  }
+}

@@ -2,18 +2,22 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
-  box-sizing: border-box;
-  color: #172b4d;
-  background: #f4f7fc;
+  padding: 2rem;
+  background: var(--color-superficie);
+  border-top: 4px solid var(--color-primario);
   border-radius: 16px;
-  font-family: Arial, sans-serif;
+  box-shadow: 0 10px 30px rgb(30 41 59 / 8%);
+  color: var(--color-texto);
   text-align: left;
 }
 
 .catalogo h2 {
-  margin-top: 0;
   font-size: 1.8rem;
+}
+
+.catalogo > p {
+  margin-top: 0.5rem;
+  color: var(--color-texto-sec);
 }
 
 .catalogo__controles {
@@ -33,7 +37,7 @@
 }
 
 .catalogo label {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .catalogo input,
@@ -41,40 +45,47 @@
 .catalogo button {
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid #718096;
   border-radius: 8px;
   font: inherit;
-  box-sizing: border-box;
 }
 
 .catalogo input,
 .catalogo select {
   width: 100%;
-  color: #172b4d;
-  background: white;
+  border: 1px solid #cbd5e1;
+  background: var(--color-superficie);
+  color: var(--color-texto);
 }
 
 .catalogo button {
-  color: white;
-  background: #1955b5;
-  border-color: #1955b5;
+  border: 1px solid var(--color-primario);
+  background: var(--color-primario);
+  color: #fff;
   cursor: pointer;
 }
 
-.catalogo button:hover {
-  background: #123f88;
+.catalogo button:hover:not(:disabled) {
+  border-color: var(--color-secundario);
+  background: var(--color-secundario);
+}
+
+.catalogo button:disabled {
+  border-color: #94a3b8;
+  background: #94a3b8;
+  cursor: wait;
 }
 
 .catalogo input:focus-visible,
 .catalogo select:focus-visible,
 .catalogo button:focus-visible,
 .catalogo summary:focus-visible {
-  outline: 3px solid #995600;
+  outline: 3px solid var(--color-secundario);
   outline-offset: 3px;
 }
 
 .catalogo__contador {
   margin: 24px 0 16px;
+  color: var(--color-texto-sec);
 }
 
 .catalogo__lista {
@@ -86,9 +97,9 @@
 .catalogo__tarjeta {
   min-width: 0;
   padding: 20px;
-  background: white;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
+  background: var(--color-fondo);
   overflow-wrap: anywhere;
 }
 
@@ -101,117 +112,38 @@
   display: inline-block;
   margin: 0 0 16px;
   padding: 5px 10px;
-  color: #16458a;
-  background: #e7efff;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: var(--color-secundario);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .catalogo summary {
-  color: #1955b5;
-  font-weight: bold;
+  color: var(--color-primario);
+  font-weight: 600;
   cursor: pointer;
 }
 
 .catalogo details p {
-  margin-bottom: 0;
+  margin-top: 8px;
   line-height: 1.6;
 }
 
 .catalogo__vacio {
   padding: 20px;
-  background: white;
-  border: 1px dashed #718096;
+  border: 1px dashed #94a3b8;
   border-radius: 12px;
+  background: var(--color-fondo);
   line-height: 1.6;
 }
 
 @media (max-width: 480px) {
   .catalogo {
-    padding: 16px;
+    padding: 1.25rem;
   }
 
   .catalogo__controles > button {
     width: 100%;
   }
-}
-
-.catalogo + .catalogo {
-  margin-top: 32px;
-}
-
-.catalogo button:disabled {
-  background: #52647c;
-  border-color: #52647c;
-  cursor: wait;
-}
-
-.catalogo__tarjeta a {
-  color: #1955b5;
-  text-decoration: underline;
-}
-
-.catalogo__tarjeta a:focus-visible {
-  outline: 3px solid #995600;
-  outline-offset: 3px;
-}
-/* Paleta pastel: vino y violeta */
-
-.catalogo {
-  color: #49344f;
-  background: #f3edf7;
-}
-
-.catalogo input,
-.catalogo select {
-  color: #49344f;
-  background: #fffbff;
-  border-color: #a58cab;
-}
-
-.catalogo button {
-  color: #ffffff;
-  background: #784461;
-  border-color: #784461;
-}
-
-.catalogo button:hover:not(:disabled) {
-  background: #60364e;
-  border-color: #60364e;
-}
-
-.catalogo button:disabled {
-  color: #ffffff;
-  background: #79677e;
-  border-color: #79677e;
-}
-
-.catalogo__tarjeta {
-  background: #fff7fb;
-  border-color: #ddc9df;
-}
-
-.catalogo__categoria {
-  color: #653b70;
-  background: #eadcf1;
-}
-
-.catalogo summary,
-.catalogo__tarjeta a {
-  color: #783c60;
-}
-
-.catalogo__vacio {
-  color: #49344f;
-  background: #fff7fb;
-  border-color: #a58cab;
-}
-
-.catalogo input:focus-visible,
-.catalogo select:focus-visible,
-.catalogo button:focus-visible,
-.catalogo summary:focus-visible,
-.catalogo__tarjeta a:focus-visible {
-  outline: 3px solid #80518e;
-  outline-offset: 3px;
 }

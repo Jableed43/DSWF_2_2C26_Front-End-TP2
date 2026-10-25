@@ -1,10 +1,7 @@
+import BitacoraRegistros from '../components/BitacoraRegistros'
+
 function Bitacora() {
-  return (
-    <>
-      <h1>Bitácora</h1>
-      <p>Sección pendiente.</p>
-    </>
-  )
+  return <BitacoraRegistros />
 }
 
 export default Bitacora

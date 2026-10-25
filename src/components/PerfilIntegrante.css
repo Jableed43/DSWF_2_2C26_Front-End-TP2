@@ -147,7 +147,7 @@
 }
 
 .perfil-integrante :is(a, button):focus-visible {
-  outline: 3px solid var(--color-claro);
+  outline: 3px solid var(--color-secundario);
   outline-offset: 3px;
 }
 
