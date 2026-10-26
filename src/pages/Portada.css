@@ -255,9 +255,8 @@
   height: 56px;
   border: 2px solid #ffffff;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center 25%;
-  background: var(--burgundy-100);
+  object-fit: contain;
+  background: #ffffff;
   box-shadow: 0 4px 10px rgba(100, 32, 94, 0.25);
   flex-shrink: 0;
 }
