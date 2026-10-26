@@ -81,10 +81,6 @@
   outline-offset: 3px;
 }
 
-/* Permite desplazar el contenido final por encima del reproductor. */
-body {
-  padding-bottom: 260px;
-}
 .reproductor [hidden] {
   display: none !important;
 }

@@ -379,3 +379,8 @@
     transition: none;
   }
 }
+
+.perfil-integrante > :last-child,
+.perfil-integrante > :last-child > :last-child {
+  margin-bottom: 0;
+}
