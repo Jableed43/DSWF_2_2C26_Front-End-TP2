@@ -136,6 +136,9 @@ Cada integrante completa su fila con la aplicación que usó, el modelo y para q
 | Integrante | Aplicación | Modelo | Contenido o tarea |
 |---|---|---|---|
 | Javier | Claude Code | Claude Sonnet 5.5 | Durante el desarrollo utilicé Claude Code (con el modelo Claude Sonnet 5.5) como asistente técnico de apoyo para agilizar tareas de configuración, maquetación y revisión. La herramienta colaboró en la inicialización (Vite, React Router y Vercel); la estructuración del layout, la sidebar y la navegación; el procesamiento de datos del TP1; la lógica del árbol de renderizado y la bitácora; la revisión cruzada de ramas y la redacción de la documentación.<br><br>Todas las decisiones de arquitectura, diseño y contenido fueron definidas y validadas por el equipo y por mí. Cada cambio fue auditado, probado e integrado de forma manual antes de subirlo. No se utilizaron herramientas de IA para la generación de recursos visuales; las imágenes y avatares pertenecen a los integrantes del equipo. |
+
 | Rocío | _a completar_ | _a completar_ | _a completar_ |
-| Damián | _a completar_ | _a completar_ | _a completar_ |
+
+| Damián | ChatGpt| 6.1 Sol | Lo utilicé como ayudante para resolver dudas y recibir orientación en partes que no sabía cómo implementar: componentes y estados de React, catálogo con JSON local, búsqueda y filtros, detalles desplegables y consulta a la API de GitHub con estados de carga y error. También consulté sobre el reproductor de música, las interacciones del perfil personal, los estilos y el uso de Git. Me ayudó a revisar errores y redactar la documentación del README. Las sugerencias se revisaron y adaptaron al proyecto. |
+
 | Facundo | _a completar_ | _a completar_ | _a completar_ |
