@@ -50,7 +50,7 @@ Para asegurar la calidad del código y la coherencia arquitectónica, el equipo 
 
 | Integrante | Tareas Asignadas | Criterios Vinculados |
 | :--- | :--- | :--- |
-| **Rocío Arenas** | Definición de tokens de diseño en `theme.css` (paleta borgoña 60-30-10), diseño de la Portada con elementos interactivos, creación de avatares vectoriales y adaptabilidad multidispositivo. | Criterios 07, 09, 08 (perfil) |
+|**Rocío Arenas** | Definición de tokens de diseño en `theme.css` (paleta borgoña 60-30-10), diseño de la Portada con elementos interactivos, creación de avatares vectoriales, adaptabilidad multidispositivo mediante media queries y lógica para la ambientación sonora con música y efectos ambientales. | Criterios 07, 08, 09 (perfil) |
 | **Javier López** | Arquitectura general con Vite y React Router, Sidebar compartida con panel móvil que abre y cierra, componente base reutilizable `PerfilIntegrante` con props, configuración de `vercel.json` y Árbol de renderizado expandible. | Criterios 01, 04, 05, 06, 13, 08 (perfil) |
 | **Damián Gorosito** | Estructuración del JSON local con 20+ herramientas, búsqueda en vivo con normalización de acentos, filtro reactivo por categoría, consumo de GitHub REST API con `AbortController` y widget de audio. | Criterios 10, 11, 12, 08 (perfil) |
 | **Facundo Sánchez** | Redacción del README con índice interno, migración de la bitácora del TP1 al TP2 con filtros reactivos y desplegables, consolidación de la declaración de IA y verificación integral de rúbrica. | Criterios 02, 03, 14, 15, 08 (perfil) |
