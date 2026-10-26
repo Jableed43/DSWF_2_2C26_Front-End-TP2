@@ -3,120 +3,140 @@
     "id": 1,
     "nombre": "React",
     "categoria": "Frontend",
-    "descripcion": "Biblioteca para construir interfaces mediante componentes."
+    "descripcion": "Biblioteca para construir interfaces mediante componentes.",
+    "icono": "/img/herramientas/react.svg"
   },
   {
     "id": 2,
     "nombre": "Vue",
     "categoria": "Frontend",
-    "descripcion": "Framework para crear interfaces y aplicaciones web."
+    "descripcion": "Framework para crear interfaces y aplicaciones web.",
+    "icono": "/img/herramientas/vue.svg"
   },
   {
     "id": 3,
     "nombre": "Angular",
     "categoria": "Frontend",
-    "descripcion": "Framework para desarrollar aplicaciones web con TypeScript."
+    "descripcion": "Framework para desarrollar aplicaciones web con TypeScript.",
+    "icono": "/img/herramientas/angular.svg"
   },
   {
     "id": 4,
     "nombre": "Bootstrap",
     "categoria": "Frontend",
-    "descripcion": "Conjunto de estilos y componentes para diseñar páginas adaptables."
+    "descripcion": "Conjunto de estilos y componentes para diseñar páginas adaptables.",
+    "icono": "/img/herramientas/bootstrap.svg"
   },
   {
     "id": 5,
     "nombre": "Tailwind CSS",
     "categoria": "Frontend",
-    "descripcion": "Framework de CSS basado en clases de utilidad."
+    "descripcion": "Framework de CSS basado en clases de utilidad.",
+    "icono": "/img/herramientas/tailwind-css.svg"
   },
   {
     "id": 6,
     "nombre": "Express",
     "categoria": "Backend",
-    "descripcion": "Framework de Node.js para crear servidores y API."
+    "descripcion": "Framework de Node.js para crear servidores y API.",
+    "icono": "/img/herramientas/express.svg"
   },
   {
     "id": 7,
     "nombre": "Django",
     "categoria": "Backend",
-    "descripcion": "Framework de Python para desarrollar aplicaciones web."
+    "descripcion": "Framework de Python para desarrollar aplicaciones web.",
+    "icono": "/img/herramientas/django.svg"
   },
   {
     "id": 8,
     "nombre": "Flask",
     "categoria": "Backend",
-    "descripcion": "Framework de Python para crear aplicaciones y servicios web."
+    "descripcion": "Framework de Python para crear aplicaciones y servicios web.",
+    "icono": "/img/herramientas/flask.svg"
   },
   {
     "id": 9,
     "nombre": "Laravel",
     "categoria": "Backend",
-    "descripcion": "Framework de PHP para desarrollar aplicaciones web."
+    "descripcion": "Framework de PHP para desarrollar aplicaciones web.",
+    "icono": "/img/herramientas/laravel.svg"
   },
   {
     "id": 10,
     "nombre": "Spring Boot",
     "categoria": "Backend",
-    "descripcion": "Herramienta del ecosistema Spring para crear aplicaciones Java."
+    "descripcion": "Herramienta del ecosistema Spring para crear aplicaciones Java.",
+    "icono": "/img/herramientas/spring-boot.svg"
   },
   {
     "id": 11,
     "nombre": "MySQL",
     "categoria": "Bases de datos",
-    "descripcion": "Sistema de bases de datos relacionales que utiliza SQL."
+    "descripcion": "Sistema de bases de datos relacionales que utiliza SQL.",
+    "icono": "/img/herramientas/mysql.svg"
   },
   {
     "id": 12,
     "nombre": "PostgreSQL",
     "categoria": "Bases de datos",
-    "descripcion": "Sistema de bases de datos relacionales de código abierto."
+    "descripcion": "Sistema de bases de datos relacionales de código abierto.",
+    "icono": "/img/herramientas/postgresql.svg"
   },
   {
     "id": 13,
     "nombre": "MongoDB",
     "categoria": "Bases de datos",
-    "descripcion": "Base de datos que organiza la información en documentos."
+    "descripcion": "Base de datos que organiza la información en documentos.",
+    "icono": "/img/herramientas/mongodb.svg"
   },
   {
     "id": 14,
     "nombre": "SQLite",
     "categoria": "Bases de datos",
-    "descripcion": "Motor de bases de datos que permite almacenar una base en un archivo."
+    "descripcion": "Motor de bases de datos que permite almacenar una base en un archivo.",
+    "icono": "/img/herramientas/sqlite.svg"
   },
   {
     "id": 15,
     "nombre": "Redis",
     "categoria": "Bases de datos",
-    "descripcion": "Almacén de datos en memoria utilizado, entre otros usos, como caché."
+    "descripcion": "Almacén de datos en memoria utilizado, entre otros usos, como caché.",
+    "icono": "/img/herramientas/redis.svg"
   },
   {
     "id": 16,
     "nombre": "Visual Studio Code",
     "categoria": "Desarrollo",
-    "descripcion": "Editor de código con extensiones para distintos lenguajes."
+    "descripcion": "Editor de código con extensiones para distintos lenguajes.",
+    "icono": "/img/herramientas/visual-studio-code.svg"
   },
   {
     "id": 17,
     "nombre": "Git",
     "categoria": "Desarrollo",
-    "descripcion": "Sistema de control de versiones para registrar cambios en archivos."
+    "descripcion": "Sistema de control de versiones para registrar cambios en archivos.",
+    "icono": "/img/herramientas/git.svg"
   },
   {
     "id": 18,
     "nombre": "Vite",
     "categoria": "Desarrollo",
-    "descripcion": "Herramienta para ejecutar y generar proyectos frontend."
+    "descripcion": "Herramienta para ejecutar y generar proyectos frontend.",
+    "icono": "/img/herramientas/vite.svg"
   },
   {
     "id": 19,
     "nombre": "Postman",
     "categoria": "Desarrollo",
-    "descripcion": "Aplicación para enviar solicitudes y probar API."
+    "descripcion": "Aplicación para enviar solicitudes y probar API.",
+    "icono": "/img/herramientas/postman.svg"
   },
   {
     "id": 20,
     "nombre": "Docker",
     "categoria": "Desarrollo",
-    "descripcion": "Plataforma para ejecutar aplicaciones en contenedores."
+    "descripcion": "Plataforma para ejecutar aplicaciones en contenedores.",
+    "icono": "/img/herramientas/docker.svg"
   }
 ]

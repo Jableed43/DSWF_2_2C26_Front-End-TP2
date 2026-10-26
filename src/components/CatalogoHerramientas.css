@@ -215,3 +215,23 @@
   outline: 3px solid var(--color-secundario);
   outline-offset: 3px;
 }
+.catalogo__encabezado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.catalogo__encabezado h3 {
+  margin: 0;
+}
+
+.catalogo__icono {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 8px;
+  background: #ffffff;
+  object-fit: contain;
+}

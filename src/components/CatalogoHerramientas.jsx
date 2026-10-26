@@ -96,7 +96,17 @@ function CatalogoHerramientas() {
               className="catalogo__tarjeta"
               key={herramienta.id}
             >
-              <h3>{herramienta.nombre}</h3>
+              <div className="catalogo__encabezado">
+                <img
+                  className="catalogo__icono"
+                  src={herramienta.icono}
+                  alt=""
+                  width="36"
+                  height="36"
+                  loading="lazy"
+                />
+                <h3>{herramienta.nombre}</h3>
+              </div>
               <p className="catalogo__categoria">
                 {herramienta.categoria}
               </p>
