@@ -141,4 +141,4 @@ Cada integrante completa su fila con la aplicación que usó, el modelo y para q
 
 | Damián | ChatGpt| 6.1 Sol | Lo utilicé como ayudante para resolver dudas y recibir orientación en partes que no sabía cómo implementar: componentes y estados de React, catálogo con JSON local, búsqueda y filtros, detalles desplegables y consulta a la API de GitHub con estados de carga y error. También consulté sobre el reproductor de música, las interacciones del perfil personal, los estilos y el uso de Git. Me ayudó a revisar errores y redactar la documentación del README. Las sugerencias se revisaron y adaptaron al proyecto. |
 
-| Facundo | _a completar_ | _a completar_ | _a completar_ |
+ Facundo | DeepSeek | Mixture of Experts (MoE)V4.1-Flash | Lo utiicé como experto en diversos temas para orientarme en la resolucion de problemas como ser manejo de Git (ramas, commits, resolución de conflictos), frontend con React, Node.js y JavaScript, despliegue en Vercel. También consulté sobre la organización del código y la redacción del README. Me ayudó a revisar errores y adaptar las sugerencias al proyecto.|
